@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { firestore } from './configs/firebase';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './redux-store/reducers';
+import initialState from './redux-store/initialState';
+import AppBar from './tim-components/AppBar';
+import ResponsiveDrawer from './tim-components/ResponsiveDrawer';
+
+const store = createStore(reducer, initialState);
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+
+      <AppBar />
+      <ResponsiveDrawer />
+
+    </Provider>
   );
 }
 
