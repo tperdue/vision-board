@@ -5,7 +5,7 @@ import { connect }from 'react-redux';
 const matchStateToProps = (state) =>{
     return ({  
         id: props.id,
-        selected: true,
+        selected: props.selected,
         height: props.height,
         width: props.width,
         border: props.border,

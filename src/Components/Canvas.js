@@ -14,7 +14,7 @@ const Canvas = (props)=>{
         margin: props.margin
     }
     return (
-        <canvas style={style} onClick={props.clicked}></canvas>
+        <canvas style={style} onClick={props.clicked} selected={props.selected}></canvas>
     )
 }
 
