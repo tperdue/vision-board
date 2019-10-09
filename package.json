@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@uploadcare/react-widget": "^1.0.2",
+    "caman": "^4.1.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "uploadcare-widget": "^3.7.9"
   },
   "scripts": {
     "start": "react-scripts start",
