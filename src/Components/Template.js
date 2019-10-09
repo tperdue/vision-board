@@ -36,12 +36,13 @@ class Template extends Component {
 
     canvasClick (event, i) {
         const canvasId = this.state.canvases.map((canvas)=>{
+            const newCanvas = {...canvas};
             if (canvas.id == i) {
-                canvas.selected == true
-            }else {
-                canvas.selected ==false
+                newCanvas.selected = true
+            } else {
+                newCanvas.selected = false
             };
-            return canvas
+            return newCanvas
         })
         this.setState({canvases: canvasId})
     }
