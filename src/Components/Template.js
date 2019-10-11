@@ -1,6 +1,7 @@
 import React from 'react';
 import {Component} from 'react';
 import Canvas from './Canvas';
+import { connect } from 'react-redux';
 
 
 
@@ -8,51 +9,40 @@ import Canvas from './Canvas';
 class Template extends Component {
     constructor (props) {
         super(props);
-        this.state = {
-            canvases: [
-                {
-                    id: '0',
-                    selected: false,
-                    height: '400px',
-                    width: '400px',
-                    border: 'none',
-                    color: 'gray',
-                    radius: '5px',
-                    margin: '',
-                },
-                {
-                    id:'1',
-                    selected: false,
-                    height: '200px',
-                    width: '200px',
-                    border: 'none',
-                    color: 'pink',
-                    radius: '5px',
-                    margin: '-8',
-                }
-            ]
-        }
+        this.state = {}
     }
 
-    canvasClick (event, i) {
-        const canvasId = this.state.canvases.map((canvas)=>{
-            const newCanvas = {...canvas};
-            if (canvas.id == i) {
-                newCanvas.selected = true
-            } else {
-                newCanvas.selected = false
-            };
-            return newCanvas
-        })
-        this.setState({canvases: canvasId})
-    }
+    // canvasClick (event, i) {
+    //     const canvasId = this.props.canvases.map((canvas)=>{
+    //         const newCanvas = {...canvas};
+    //         if (canvas.id == i) {
+    //             newCanvas.selected = true;
+    //             newCanvas.border = "gray";
+    //         } else {
+    //             newCanvas.selected = false;
+    //             newCanvas.border = "none";
+
+    //         };
+    //         return newCanvas
+    //     })
+    //     this.setState({canvases: canvasId})
+    // }
     
 
 
     render() {
         
-        const canvasjsx = this.state.canvases.map((canvasObj) => {
-            return (<Canvas {...canvasObj} key={canvasObj.id} clicked={this.canvasClick.bind(this)}/>)
+        const canvasjsx = this.props.canvases.map((canvasObj) => {
+            return (<Canvas 
+                selected = {canvasObj.selected} 
+                height = {canvasObj.height} 
+                width = {canvasObj.width} 
+                border = {canvasObj.border} 
+                color = {canvasObj.color} 
+                radius = {canvasObj.radius} 
+                margin = {canvasObj.margin} 
+                key={canvasObj.id} 
+                clicked={()=>{this.props.clicked(canvasObj.id)}}/>)
             });
             
         

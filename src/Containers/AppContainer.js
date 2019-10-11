@@ -1,4 +1,4 @@
-import Template from '../Components/Template';
+import App from '../App';
 import { connect }from 'react-redux';
 
 
@@ -17,4 +17,4 @@ const matchDispatchToProps = (dispatch) => {
 
 
 
-export default connect(matchStateToProps, matchDispatchToProps)(Template)
+export default connect(matchStateToProps, matchDispatchToProps)(App)

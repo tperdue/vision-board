@@ -1,15 +1,16 @@
 import React from 'react';
 import './CSS/App.css';
-import Template from './Components/Template';
-import { Widget } from "@uploadcare/react-widget";
+import TemplateContainer from './Containers/TemplateContainer';
 import Sidebar from './Components/Sidebar';
 
 
-function App() {
+
+function App(props) {
   return (
     <div className="App">
-      <Sidebar/>
-      <Template/>
+      { props.canvases.some(canvas=>canvas.selected) ? 
+      <Sidebar/> : null }
+      <TemplateContainer/>
     </div>
   );
 }
