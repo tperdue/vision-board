@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { toggleDrawer } from '../redux-store/actions';
+import { toggleDrawer } from '../redux-store/actions/drawer';
 import PropTypes from 'prop-types';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';

@@ -8,7 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { drawerWidth } from '../configs/app-constants';
-import { toggleDrawer } from '../redux-store/actions';
+import { toggleDrawer } from '../redux-store/actions/drawer';
+import AccountLogin from './AccountLogin';
 
 
 const useStyles = makeStyles(theme => ({
@@ -47,9 +48,10 @@ const ButtonAppBar = (props) => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap>
+                <Typography variant="h6" noWrap className={classes.title}>
                     Vision Board
                     </Typography>
+                <AccountLogin />
             </Toolbar>
         </AppBar>
 

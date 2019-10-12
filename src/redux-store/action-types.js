@@ -1,2 +1,10 @@
 export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 
+//USER ACTIONS
+
+export const CHECK_LOGGED_IN_STATUS = 'CHECK_LOGGED_IN_STATUS';
+export const LOG_IN_USER = 'LOG_IN_USER';
+export const LOG_OUT_USER = 'LOG_OUT_USER';
+
+
+
