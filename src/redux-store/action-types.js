@@ -7,6 +7,7 @@ export const LOG_IN_USER = 'LOG_IN_USER';
 export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const UPDATE_USER_STATUS = 'UPDATE_USER_STATUS'
 export const PENDING_USER_LOGIN = 'PENDING_USER_LOGIN'
+export const ERROR_LOGGING_IN = 'ERROR_LOGGING_IN'
 
 
 

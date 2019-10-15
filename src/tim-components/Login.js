@@ -11,7 +11,11 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import TabPanel from './TabPanel';
+
 
 
 const userStyles = makeStyles(theme => ({
@@ -67,19 +71,40 @@ const userStyles = makeStyles(theme => ({
 
 const Login = (props) => {
     const classes = userStyles();
-    const [username, setUserName] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+    const [newPassword, setNewPassword] = useState('');
     const [open, setOpen] = useState(false);
-    const handleUserNameChange = (event) => {
-        setUserName(event.target.value);
+    const [tabValue, setTabValue] = useState(0);
+
+
+    function a11yProps(index) {
+        return {
+          id: `simple-tab-${index}`,
+          'aria-controls': `simple-tabpanel-${index}`,
+        };
+      }
+
+
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
+    }
+
+    const handleNewEmailChange = (event) => {
+        setNewEmail(event.target.value);
+    }
+
+    const handleNewPasswordChange = (event) => {
+        setNewPassword(event.target.value);
     }
 
     const handleLoginBtn = (event) => {
         const { logInUser } = props;
-        const loginData = { username, password };
+        const loginData = { email, password };
         setOpen(true);
         logInUser(loginData);
-        console.log(loginData)
+       
     }
 
     const handlePasswordChange = (event) => {
@@ -90,18 +115,41 @@ const Login = (props) => {
         setOpen(false);
     }
 
+  
+    const handleTabChange = (event, newValue) => {
+        setTabValue(newValue);
+    }
+
+    const dialogContent = (props) => {
+        const { errorMessage, errorLoggingIn, pendingLogin } = props;
+        if (errorLoggingIn) return errorMessage;
+
+        if (pendingLogin) return <LinearProgress />
+    }
+    
+
+   
     return (
         <div className={classes.page}>
 
-            <Card className={classes.card}>
+        <Tabs value={tabValue} onChange={handleTabChange} aria-label="simple tabs example">
+          <Tab label="Log In" {...a11yProps(0)} />
+          <Tab label="Sign Up" {...a11yProps(1)} />
+          
+        </Tabs>
+
+
+        <TabPanel value={tabValue} index={0}>
+
+        <Card className={classes.card}>
                 <CardContent className={classes.cardContent}>
                     <TextField
                         id="username"
                         label="Username"
-                        onChange={handleUserNameChange}
+                        onChange={handleEmailChange}
                         margin="normal"
                         variant="outlined"
-                        value={username}
+                        value={email}
                     />
 
                     <TextField
@@ -120,26 +168,67 @@ const Login = (props) => {
                         className={classes.loginButton}
                         onClick={handleLoginBtn}
                     >
-                        Sign In / Register
+                        Login 
                         </Button>
                 </CardActions>
             </Card>
+        </TabPanel>
+
+
+        <TabPanel value={tabValue} index={1}>
+
+<Card className={classes.card}>
+        <CardContent className={classes.cardContent}>
+            <TextField
+                id="newEmail"
+                label="Email Address"
+                onChange={handleNewEmailChange}
+                margin="normal"
+                variant="outlined"
+                value={email}
+            />
+
+            <TextField
+                id="password"
+                label="Password"
+                onChange={handlePasswordChange}
+                margin="normal"
+                variant="outlined"
+                value={password}
+            />
+        </CardContent>
+        <CardActions className={classes.cardActions}>
+            <Button
+                variant="contained"
+                color="primary"
+                className={classes.loginButton}
+                onClick={handleLoginBtn}
+            >
+                Create Account
+                </Button>
+        </CardActions>
+    </Card>
+</TabPanel>
+
+      
+          
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-                <DialogTitle id="simple-dialog-title">Logging In</DialogTitle>
-                <div>
-                    <LinearProgress />
 
-                </div>
-
+                <DialogTitle id="simple-dialog-title">Error</DialogTitle> 
+                    <div>
+                        {dialogContent(props)}
+                    </div>
             </Dialog>
         </div>
 
     )
 }
 
-const mapStateToProps = ({ user }) => {
-    const { loggedIn, pendingLogin } = user;
-    return { loggedIn, pendingLogin }
+const mapStateToProps = ({user}) => {
+ 
+    const { loggedIn, pendingLogin, errorLoggingIn, errorMessage } = user;
+    return { loggedIn, pendingLogin, errorLoggingIn, errorMessage }
+    
 };
 
 const mapDispatchToProps = {

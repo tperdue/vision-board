@@ -5,7 +5,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
 
-    console.log(state)
+    
     const { open } = state;
     switch (action.type) {
         case TOGGLE_DRAWER:
