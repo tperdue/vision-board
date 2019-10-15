@@ -5,7 +5,9 @@ import {
     LOG_OUT_USER,
     PENDING_USER_LOGIN,
     ERROR_LOGGING_IN,
-    UPDATE_USER_STATUS
+    UPDATE_USER_STATUS,
+    ERROR_REGISTERING_USER,
+    SUCCESSFUL_GET_USER
 } from '../action-types';
 
 
@@ -41,13 +43,24 @@ export default (state = initialState, action) => {
             return user;
         case ERROR_LOGGING_IN:
             user.errorLoggingIn = true;
-            user.pendingLogin = true;
+            user.pendingLogin = false;
             user.username = action.payload.username;
             user.errorMessage = 'Invalid email and/or password. Please try again or create an account'
             return user;
 
-        case UPDATE_USER_STATUS: 
-            user = Object.assign(state, action.payload);
+        case ERROR_REGISTERING_USER:
+            user.errorLoggingIn = true;
+            user.pendingLogin = false;
+            user.sername = action.payload.email;
+            user.errorMessage = action.payload.errorMessage
+            return user;
+
+        case UPDATE_USER_STATUS:
+            user = Object.assign(user, action.payload);
+            return user
+
+        case SUCCESSFUL_GET_USER:
+            user = action.payload;
             return user
 
 

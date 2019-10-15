@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { logInUser, registerUser } from '../redux-store/actions/user';
-
+import { navigate } from "@reach/router"
 import { makeStyles } from '@material-ui/core/styles';
 
 import Card from '@material-ui/core/Card';
@@ -83,10 +83,10 @@ const Login = (props) => {
 
     function a11yProps(index) {
         return {
-          id: `simple-tab-${index}`,
-          'aria-controls': `simple-tabpanel-${index}`,
+            id: `simple-tab-${index}`,
+            'aria-controls': `simple-tabpanel-${index}`,
         };
-      }
+    }
 
 
     const handleEmailChange = (event) => {
@@ -97,21 +97,21 @@ const Login = (props) => {
         setNewEmail(event.target.value);
     }
 
-   
+
 
     const handleLoginBtn = (event) => {
         const { logInUser } = props;
         const loginData = { email, password };
         setOpen(true);
         logInUser(loginData);
-       
+
     }
 
 
     const handleRegisterBtn = (event) => {
-    
-        const { registerUser} = props;
-        const userData = { email: newEmail, password: newPassword};
+
+        const { registerUser } = props;
+        const userData = { email: newEmail, password: newPassword };
         setOpen(true);
         registerUser(userData);
 
@@ -130,122 +130,127 @@ const Login = (props) => {
         setOpen(false);
     }
 
-  
+
     const handleTabChange = (event, newValue) => {
         setTabValue(newValue);
     }
 
     const dialogContent = (props) => {
-        const { errorMessage, errorLoggingIn, pendingLogin } = props;
+        const { errorMessage, errorLoggingIn, pendingLogin, loggedIn } = props;
         if (errorLoggingIn) return errorMessage;
 
         if (pendingLogin) return <LinearProgress />
-    }
-    
 
-   
+        if (loggedIn) return 'Successfully logged in!'
+    }
+
+
+    if (props.loggedIn) {
+        props.navigate('/');
+    }
     return (
+
         <div className={classes.page}>
 
-        <Tabs value={tabValue} onChange={handleTabChange} aria-label="simple tabs example">
-          <Tab label="Log In" {...a11yProps(0)} />
-          <Tab label="Sign Up" {...a11yProps(1)} />
-          
-        </Tabs>
+            <Tabs value={tabValue} onChange={handleTabChange} aria-label="simple tabs example">
+                <Tab label="Log In" {...a11yProps(0)} />
+                <Tab label="Sign Up" {...a11yProps(1)} />
+
+            </Tabs>
 
 
-        <TabPanel value={tabValue} index={0}>
+            <TabPanel value={tabValue} index={0}>
 
-        <Card className={classes.card}>
-                <CardContent className={classes.cardContent}>
-                    <TextField
-                        id="username"
-                        label="Username"
-                        onChange={handleEmailChange}
-                        margin="normal"
-                        variant="outlined"
-                        value={email}
-                    />
+                <Card className={classes.card}>
+                    <CardContent className={classes.cardContent}>
+                        <TextField
+                            id="username"
+                            label="Username"
+                            onChange={handleEmailChange}
+                            margin="normal"
+                            variant="outlined"
+                            value={email}
+                        />
 
-                    <TextField
-                        id="password"
-                        label="Password"
-                        onChange={handlePasswordChange}
-                        margin="normal"
-                        type="password"
-                        variant="outlined"
-                        value={password}
-                    />
-                </CardContent>
-                <CardActions className={classes.cardActions}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        className={classes.loginButton}
-                        onClick={handleLoginBtn}
-                    >
-                        Login 
+                        <TextField
+                            id="password"
+                            label="Password"
+                            onChange={handlePasswordChange}
+                            margin="normal"
+                            type="password"
+                            variant="outlined"
+                            value={password}
+                        />
+                    </CardContent>
+                    <CardActions className={classes.cardActions}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.loginButton}
+                            onClick={handleLoginBtn}
+                        >
+                            Login
                         </Button>
-                </CardActions>
-            </Card>
-        </TabPanel>
+                    </CardActions>
+                </Card>
+            </TabPanel>
 
 
-        <TabPanel value={tabValue} index={1}>
+            <TabPanel value={tabValue} index={1}>
 
-<Card className={classes.card}>
-        <CardContent className={classes.cardContent}>
-            <TextField
-                id="newEmail"
-                label="Email Address"
-                onChange={handleNewEmailChange}
-                margin="normal"
-                variant="outlined"
-                value={newEmail}
-            />
+                <Card className={classes.card}>
+                    <CardContent className={classes.cardContent}>
+                        <TextField
+                            id="newEmail"
+                            label="Email Address"
+                            onChange={handleNewEmailChange}
+                            margin="normal"
+                            variant="outlined"
+                            value={newEmail}
+                        />
 
-            <TextField
-                id="newPassword"
-                label="Password"
-                onChange={handleNewPasswordChange}
-                margin="normal"
-                type="password"
-                variant="outlined"
-                value={newPassword}
-            />
-        </CardContent>
-        <CardActions className={classes.cardActions}>
-            <Button
-                variant="contained"
-                color="primary"
-                className={classes.loginButton}
-                onClick={handleRegisterBtn}
-            >
-                Create Account
+                        <TextField
+                            id="newPassword"
+                            label="Password"
+                            onChange={handleNewPasswordChange}
+                            margin="normal"
+                            type="password"
+                            variant="outlined"
+                            value={newPassword}
+                        />
+                    </CardContent>
+                    <CardActions className={classes.cardActions}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            className={classes.loginButton}
+                            onClick={handleRegisterBtn}
+                        >
+                            Create Account
                 </Button>
-        </CardActions>
-    </Card>
-</TabPanel>
+                    </CardActions>
+                </Card>
+            </TabPanel>
 
-      
-          
+
+
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
 
-                <DialogTitle id="simple-dialog-title">Please Wait</DialogTitle> 
-                    <div>
-                        {dialogContent(props)}
-                    </div>
+                <DialogTitle id="simple-dialog-title">Please Wait</DialogTitle>
+                <div>
+                    {dialogContent(props)}
+                </div>
             </Dialog>
         </div>
 
     )
 }
 
-const mapStateToProps = ({user}) => {
- 
+const mapStateToProps = ({ user }) => {
+
     const { loggedIn, pendingLogin, errorLoggingIn, errorMessage } = user;
     return { loggedIn, pendingLogin, errorLoggingIn, errorMessage }
-    
+
 };
 
 const mapDispatchToProps = {

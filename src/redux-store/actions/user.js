@@ -1,15 +1,15 @@
 
 import {
 
-    LOG_IN_USER,
+
     LOG_OUT_USER,
     CHECK_LOGGED_IN_STATUS,
     UPDATE_USER_STATUS,
     PENDING_USER_LOGIN,
     ERROR_LOGGING_IN,
     REGISTERING_USER,
-    REGISTER_USER,
-    ERROR_REGISTERING_USER
+    ERROR_REGISTERING_USER,
+    SUCCESSFUL_GET_USER
 } from '../action-types'
 
 
@@ -18,10 +18,35 @@ import store from '../store';
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        const  {uid, emailVerified, photoUrl, email, displayName } = user;
-        const status = 'loggedIn';
-        const userObj = {uid, emailVerified, photoUrl, email, displayName, status};
-        store.dispatch(updateUserStatus(userObj));
+        const { uid, emailVerified, photoUrl, email, displayName } = user;
+        const loggedIn = true;
+        const userObj = {
+            uid,
+            emailVerified,
+            photoUrl,
+            email,
+            displayName,
+            loggedIn,
+            pendingLogin: false,
+            errorLoggingIn: false
+        };
+        store.dispatch(getUser(userObj));
+
+    }
+
+    else {
+        const userObj = {
+            uid: '',
+            emailVerified: false,
+            photoUrl: '',
+            email: '',
+            displayName: '',
+            loggedIn: false,
+            pendingLogin: false,
+            errorLoggingIn: false
+
+        };
+
 
     }
 })
@@ -36,24 +61,24 @@ export const pendingUserStatus = (username) => {
     }
 }
 
-export const errorLoggingIn  = (username, errorMessage) => {
+export const errorLoggingIn = (username, errorMessage) => {
     return {
         type: ERROR_LOGGING_IN,
         payload: {
             errorMessage,
             username
-          
+
         }
     }
 }
 
-export const errorRegisteringUser  = (email, errorMessage) => {
+export const errorRegisteringUser = (email, errorMessage) => {
     return {
         type: ERROR_REGISTERING_USER,
         payload: {
             errorMessage,
             email
-          
+
         }
     }
 }
@@ -68,7 +93,15 @@ export const updateUserStatus = ({ uid, emailVerified, photoUrl, email, displayN
             email,
             displayName,
             status
+
         }
+    }
+}
+
+export const getUser = (userObj) => {
+    return {
+        type: SUCCESSFUL_GET_USER,
+        payload: userObj
     }
 }
 
@@ -101,28 +134,30 @@ export const checkUserLogInStatus = (status) => {
 }
 
 
-export const registerUser = ({email, password}) => async dispatch =>{
+export const registerUser = ({ email, password }) => async dispatch => {
 
     dispatch(pendingUserStatus(email));
     try {
-        const response = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log(response);
+        await firebase.auth().createUserWithEmailAndPassword(email, password);
+
+
+
     }
 
-    catch(error) {
+    catch (error) {
         console.log(error);
         dispatch(errorRegisteringUser(email, error.message))
     }
 
-   
+
 }
 
-export const registeringUser = ({email}) => {
+export const registeringUser = ({ email }) => {
     return {
-       type: REGISTERING_USER,
-       payload: {
-           email
-           
-       }
+        type: REGISTERING_USER,
+        payload: {
+            email
+
+        }
     }
 }
