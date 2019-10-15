@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { logInUser, checkUserLogInStatus } from '../redux-store/actions/user';
+import { logInUser, registerUser } from '../redux-store/actions/user';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,6 +15,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TabPanel from './TabPanel';
+
+
 
 
 
@@ -95,9 +97,7 @@ const Login = (props) => {
         setNewEmail(event.target.value);
     }
 
-    const handleNewPasswordChange = (event) => {
-        setNewPassword(event.target.value);
-    }
+   
 
     const handleLoginBtn = (event) => {
         const { logInUser } = props;
@@ -107,8 +107,23 @@ const Login = (props) => {
        
     }
 
+
+    const handleRegisterBtn = (event) => {
+    
+        const { registerUser} = props;
+        const userData = { email: newEmail, password: newPassword};
+        setOpen(true);
+        registerUser(userData);
+
+
+    }
+
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
+    }
+
+    const handleNewPasswordChange = (event) => {
+        setNewPassword(event.target.value);
     }
 
     const handleClose = () => {
@@ -157,6 +172,7 @@ const Login = (props) => {
                         label="Password"
                         onChange={handlePasswordChange}
                         margin="normal"
+                        type="password"
                         variant="outlined"
                         value={password}
                     />
@@ -185,16 +201,17 @@ const Login = (props) => {
                 onChange={handleNewEmailChange}
                 margin="normal"
                 variant="outlined"
-                value={email}
+                value={newEmail}
             />
 
             <TextField
-                id="password"
+                id="newPassword"
                 label="Password"
-                onChange={handlePasswordChange}
+                onChange={handleNewPasswordChange}
                 margin="normal"
+                type="password"
                 variant="outlined"
-                value={password}
+                value={newPassword}
             />
         </CardContent>
         <CardActions className={classes.cardActions}>
@@ -202,7 +219,7 @@ const Login = (props) => {
                 variant="contained"
                 color="primary"
                 className={classes.loginButton}
-                onClick={handleLoginBtn}
+                onClick={handleRegisterBtn}
             >
                 Create Account
                 </Button>
@@ -214,7 +231,7 @@ const Login = (props) => {
           
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
 
-                <DialogTitle id="simple-dialog-title">Error</DialogTitle> 
+                <DialogTitle id="simple-dialog-title">Please Wait</DialogTitle> 
                     <div>
                         {dialogContent(props)}
                     </div>
@@ -232,7 +249,8 @@ const mapStateToProps = ({user}) => {
 };
 
 const mapDispatchToProps = {
-    logInUser
+    logInUser,
+    registerUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

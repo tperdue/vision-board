@@ -1,3 +1,4 @@
+
 import {
 
     LOG_IN_USER,
@@ -5,10 +6,25 @@ import {
     CHECK_LOGGED_IN_STATUS,
     UPDATE_USER_STATUS,
     PENDING_USER_LOGIN,
-    ERROR_LOGGING_IN
+    ERROR_LOGGING_IN,
+    REGISTERING_USER,
+    REGISTER_USER,
+    ERROR_REGISTERING_USER
 } from '../action-types'
-import axios from 'axios';
+
+
 import firebase from '../firebase';
+import store from '../store';
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        const  {uid, emailVerified, photoUrl, email, displayName } = user;
+        const status = 'loggedIn';
+        const userObj = {uid, emailVerified, photoUrl, email, displayName, status};
+        store.dispatch(updateUserStatus(userObj));
+
+    }
+})
 
 export const pendingUserStatus = (username) => {
     return {
@@ -31,11 +47,26 @@ export const errorLoggingIn  = (username, errorMessage) => {
     }
 }
 
-export const updateUserStatus = ({ username, status }) => {
+export const errorRegisteringUser  = (email, errorMessage) => {
+    return {
+        type: ERROR_REGISTERING_USER,
+        payload: {
+            errorMessage,
+            email
+          
+        }
+    }
+}
+
+export const updateUserStatus = ({ uid, emailVerified, photoUrl, email, displayName, status }) => {
     return {
         type: UPDATE_USER_STATUS,
         payload: {
-            username,
+            uid,
+            emailVerified,
+            photoUrl,
+            email,
+            displayName,
             status
         }
     }
@@ -60,22 +91,38 @@ export const logOutUser = () => {
     }
 }
 
-/*
-export const logInUser = ({ username, password }) => {
-    return {
-        type: LOG_IN_USER,
-        payload: {
-            username,
-            password
-        }
-    }
-}
-*/
 export const checkUserLogInStatus = (status) => {
     return {
         type: CHECK_LOGGED_IN_STATUS,
         payload: {
             status
         }
+    }
+}
+
+
+export const registerUser = ({email, password}) => async dispatch =>{
+
+    dispatch(pendingUserStatus(email));
+    try {
+        const response = await firebase.auth().createUserWithEmailAndPassword(email, password);
+        console.log(response);
+    }
+
+    catch(error) {
+        console.log(error);
+        dispatch(errorRegisteringUser(email, error.message))
+    }
+
+   
+}
+
+export const registeringUser = ({email}) => {
+    return {
+       type: REGISTERING_USER,
+       payload: {
+           email
+           
+       }
     }
 }

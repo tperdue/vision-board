@@ -1,8 +1,7 @@
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
+
 import { Provider } from 'react-redux';
-import reducer from './redux-store/reducers';
-import middlewares from './redux-store/middlewares';
+import store from './redux-store/store';
 import { makeStyles } from '@material-ui/core/styles';
 import { Router } from "@reach/router"
 import AppBar from './tim-components/AppBar';
@@ -12,7 +11,7 @@ import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';
 
-const store = createStore(reducer, applyMiddleware(...middlewares));
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',

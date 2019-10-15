@@ -1,14 +1,16 @@
 import {
+
     CHECK_LOGGED_IN_STATUS,
     LOG_IN_USER,
     LOG_OUT_USER,
     PENDING_USER_LOGIN,
-    ERROR_LOGGING_IN
+    ERROR_LOGGING_IN,
+    UPDATE_USER_STATUS
 } from '../action-types';
 
 
 const initialState = {
-    username: '',
+    email: '',
     loggedIn: false,
     pendingLogin: false,
     errorLoggingIn: false,
@@ -43,6 +45,10 @@ export default (state = initialState, action) => {
             user.username = action.payload.username;
             user.errorMessage = 'Invalid email and/or password. Please try again or create an account'
             return user;
+
+        case UPDATE_USER_STATUS: 
+            user = Object.assign(state, action.payload);
+            return user
 
 
         default:
