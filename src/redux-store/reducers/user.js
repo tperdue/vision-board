@@ -34,9 +34,9 @@ export default (state = initialState, action) => {
             return user;
 
         case LOG_OUT_USER:
-            user.username = '';
-            user.loggedIn = false;
+            user = action.payload
             return user;
+
         case PENDING_USER_LOGIN:
             user.pendingLogin = true;
             user.username = action.payload.username;

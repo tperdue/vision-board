@@ -6,10 +6,12 @@ import { logOutUser } from '../redux-store/actions/user';
 
 const AccountLogin = (props) => {
 
+
     const handleClick = () => {
-        const { loggedIn } = props;
+        const { loggedIn, email, logOutUser } = props;
+
         if (loggedIn) {
-            //Send log out functionality
+            logOutUser(email);
         }
 
         else {
@@ -40,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
     return { email, loggedIn }
 };
 const mapDispatchToProps = {
-
+    logOutUser
 }
 
 

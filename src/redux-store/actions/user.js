@@ -17,6 +17,7 @@ import firebase from '../firebase';
 import store from '../store';
 
 firebase.auth().onAuthStateChanged((user) => {
+
     if (user) {
         const { uid, emailVerified, photoUrl, email, displayName } = user;
         const loggedIn = true;
@@ -46,6 +47,8 @@ firebase.auth().onAuthStateChanged((user) => {
             errorLoggingIn: false
 
         };
+
+        store.dispatch(getUser(userObj));
 
 
     }
@@ -118,9 +121,16 @@ export const logInUser = ({ email, password }) => async dispatch => {
 }
 
 
-export const logOutUser = () => {
-    return {
-        type: LOG_OUT_USER
+export const logOutUser = (email) => async dispatch => {
+    console.log(email);
+    try {
+        dispatch(pendingUserStatus(email));
+        await firebase.auth().signOut();
+
+    }
+    catch (error) {
+        console.log(error);
+        dispatch(errorLoggingIn(email, error.message))
     }
 }
 
