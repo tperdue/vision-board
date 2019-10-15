@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { logInUser, checkUserLogInStatus } from '../redux-store/actions/user';
 
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
 
 const userStyles = makeStyles(theme => ({
     page: {
@@ -17,7 +24,7 @@ const userStyles = makeStyles(theme => ({
         padding: theme.spacing(3),
     },
     card: {
-        minWidth: 275,
+        minWidth: "50vw",
     },
     bullet: {
         display: 'inline-block',
@@ -30,6 +37,28 @@ const userStyles = makeStyles(theme => ({
     pos: {
         marginBottom: 12,
     },
+    cardContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        paddingRight: "2.5rem",
+        paddingLeft: "2.5rem"
+    },
+
+    cardActions: {
+        display: 'flex',
+
+    },
+
+    loginButton: {
+        flex: 1,
+        paddingRight: "2.5rem",
+        paddingLeft: "2.5rem",
+        textAlign: "center"
+    }
+
+
+
+
 }));
 
 
@@ -38,38 +67,83 @@ const userStyles = makeStyles(theme => ({
 
 const Login = (props) => {
     const classes = userStyles();
-    const bull = <span className={classes.bullet}>•</span>;
+    const [username, setUserName] = useState('');
+    const [password, setPassword] = useState('');
+    const [open, setOpen] = useState(false);
+    const handleUserNameChange = (event) => {
+        setUserName(event.target.value);
+    }
+
+    const handleLoginBtn = (event) => {
+        const { logInUser } = props;
+        const loginData = { username, password };
+        setOpen(true);
+        logInUser(loginData);
+        console.log(loginData)
+    }
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
     return (
         <div className={classes.page}>
 
             <Card className={classes.card}>
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Word of the Day
-        </Typography>
-                    <Typography variant="h5" component="h2">
-                        be
-          {bull}
-                        nev
-          {bull}o{bull}
-                        lent
-        </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                        adjective
-        </Typography>
-                    <Typography variant="body2" component="p">
-                        well meaning and kindly.
-          <br />
-                        {'"a benevolent smile"'}
-                    </Typography>
+                <CardContent className={classes.cardContent}>
+                    <TextField
+                        id="username"
+                        label="Username"
+                        onChange={handleUserNameChange}
+                        margin="normal"
+                        variant="outlined"
+                        value={username}
+                    />
+
+                    <TextField
+                        id="password"
+                        label="Password"
+                        onChange={handlePasswordChange}
+                        margin="normal"
+                        variant="outlined"
+                        value={password}
+                    />
                 </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
+                <CardActions className={classes.cardActions}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.loginButton}
+                        onClick={handleLoginBtn}
+                    >
+                        Sign In / Register
+                        </Button>
                 </CardActions>
             </Card>
+            <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+                <DialogTitle id="simple-dialog-title">Logging In</DialogTitle>
+                <div>
+                    <LinearProgress />
+
+                </div>
+
+            </Dialog>
         </div>
 
     )
 }
 
-export default Login;
+const mapStateToProps = ({ user }) => {
+    const { loggedIn, pendingLogin } = user;
+    return { loggedIn, pendingLogin }
+};
+
+const mapDispatchToProps = {
+    logInUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -8,7 +8,6 @@ import { Router } from "@reach/router"
 import AppBar from './tim-components/AppBar';
 import ResponsiveDrawer from './tim-components/ResponsiveDrawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
 import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';

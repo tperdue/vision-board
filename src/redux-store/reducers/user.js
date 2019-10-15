@@ -1,13 +1,15 @@
 import {
     CHECK_LOGGED_IN_STATUS,
     LOG_IN_USER,
-    LOG_OUT_USER
+    LOG_OUT_USER,
+    PENDING_USER_LOGIN
 } from '../action-types';
 
 
 const initialState = {
     username: '',
     loggedIn: false,
+    pendingLogin: false
 }
 
 
@@ -28,6 +30,10 @@ export default (state = initialState, action) => {
             user.username = '';
             user.loggedIn = false;
             return user;
+        case PENDING_USER_LOGIN:
+            user.pendingLogin = true;
+            user.username = action.payload.username;
+            return user
 
 
         default:
