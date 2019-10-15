@@ -7,10 +7,9 @@ import Sidebar from './Components/Sidebar';
 
 function App(props) {
   return (
-    <div className="App">
-      { props.canvases.some(canvas=>canvas.selected) ? 
-      <Sidebar/> : null }
-      <TemplateContainer/>
+    <div className="row">
+      <div className="sidebar"><Sidebar/></div>
+      <div><TemplateContainer/></div>
     </div>
   );
 }

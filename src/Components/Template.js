@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react';
 import Canvas from './Canvas';
 import { connect } from 'react-redux';
+import '../CSS/Template.css'
 
 
 
@@ -11,22 +12,6 @@ class Template extends Component {
         super(props);
         this.state = {}
     }
-
-    // canvasClick (event, i) {
-    //     const canvasId = this.props.canvases.map((canvas)=>{
-    //         const newCanvas = {...canvas};
-    //         if (canvas.id == i) {
-    //             newCanvas.selected = true;
-    //             newCanvas.border = "gray";
-    //         } else {
-    //             newCanvas.selected = false;
-    //             newCanvas.border = "none";
-
-    //         };
-    //         return newCanvas
-    //     })
-    //     this.setState({canvases: canvasId})
-    // }
     
 
 
@@ -46,10 +31,71 @@ class Template extends Component {
             });
             
         
-        return (<div style={{backgroundColor: "#086f54"}}>{canvasjsx}</div>)
+        return (<div className="templateHolder">  
+                    <div className="container" style={{backgroundColor: "#086f54"}}>
+                        <div className="firstRow">
+                            {canvasjsx[0]} 
+                            {canvasjsx[1]}
+                        </div>
+                        <div>
+                            <div>
+                                <div className="column1">
+                                    <div>
+                                        <div>
+                                            <div>{canvasjsx[2]}</div>
+                                            <div>{canvasjsx[3]}</div>
+                                        </div>
+                                        <div>
+                                            <div>{canvasjsx[4]}</div>
+                                            <div>{canvasjsx[5]}</div>
+                                        </div>
+                                    </div>
+                                    <div>{canvasjsx[6]}</div>
+                                </div>
+                                <div className="column2">
+                                    <div>{canvasjsx[7]}</div>
+                                    <div>{canvasjsx[8]}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>)
     }
 
 
 }
 
 export default Template;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // canvasClick (event, i) {
+    //     const canvasId = this.props.canvases.map((canvas)=>{
+    //         const newCanvas = {...canvas};
+    //         if (canvas.id == i) {
+    //             newCanvas.selected = true;
+    //             newCanvas.border = "gray";
+    //         } else {
+    //             newCanvas.selected = false;
+    //             newCanvas.border = "none";
+
+    //         };
+    //         return newCanvas
+    //     })
+    //     this.setState({canvases: canvasId})
+    // }

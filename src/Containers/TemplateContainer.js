@@ -4,7 +4,7 @@ import { connect }from 'react-redux';
 
 const matchStateToProps = (state) =>{
     console.log(state)
-    return {canvases: state.canvases}      
+    return {canvases: state.can.canvases}      
 }
 
 const matchDispatchToProps = (dispatch) => {

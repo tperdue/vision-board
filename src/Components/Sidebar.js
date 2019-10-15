@@ -1,9 +1,9 @@
 import React from 'react';
-import Addphoto from './Addphoto';
+import AddPhotoContainer from '../Containers/AddPhotoContainer';
 
 
 const Sidebar = () => {
-    return (<div><Addphoto/></div>)
+    return (<div><AddPhotoContainer/></div>)
 }
 
 export default Sidebar;
