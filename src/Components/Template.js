@@ -26,6 +26,7 @@ class Template extends Component {
                 color = {canvasObj.color} 
                 radius = {canvasObj.radius} 
                 margin = {canvasObj.margin} 
+                url= {canvasObj.url}
                 key={canvasObj.id} 
                 clicked={()=>{this.props.clicked(canvasObj.id)}}/>)
             });

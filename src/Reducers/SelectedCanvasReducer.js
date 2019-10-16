@@ -8,6 +8,7 @@ let initialState = {
             color: 'gray',
             radius: '',
             margin: '0px 5px 5px 0px',
+            url: ''
         },
         {
             id:'1',
@@ -17,6 +18,8 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
+
         },
         {
             id:'2',
@@ -26,6 +29,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'3',
@@ -35,6 +39,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'4',
@@ -44,6 +49,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'5',
@@ -53,6 +59,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'6',
@@ -62,6 +69,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'7',
@@ -71,6 +79,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         },
         {
             id:'8',
@@ -80,6 +89,7 @@ let initialState = {
             color: 'pink',
             radius: '',
             margin: '5px',
+            url: ''
         }
     
     ]
@@ -87,9 +97,11 @@ let initialState = {
 
 
 let SelectedCanvasReducer = (state = initialState, action) => {
+    
     if(action.type === 'SELECT_CANVAS') {
         const newCanvases = state.canvases.map((canvas)=>{
             if(canvas.id===action.canvasId){
+
                 return {
                     ...canvas,
                     selected: !canvas.selected,
@@ -102,12 +114,26 @@ let SelectedCanvasReducer = (state = initialState, action) => {
             }  
         })
         
-    return {
-        canvases : newCanvases
+        return {
+            canvases : newCanvases
+        } 
     }
+    else  if(action.type === 'ADD_IMAGE') {
+        const chosenCanvas = state.canvases.map((canvas) => {
+                if (canvas.selected ) {
+                    canvas.url = action.payload
+                }   
+                
+                return canvas;
+
+            });
+        return  {canvases: chosenCanvas}
     }else {
         return state;
     }
+
+
+
 }
 
 export default SelectedCanvasReducer;

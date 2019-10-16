@@ -8,7 +8,7 @@ import { connect }from 'react-redux';
 
 const matchDispatchToProps = (dispatch) => {
     return {
-        AddImage: (info)=>dispatch({type:'ADD_IMAGE', payload: info}),
+        addImage: (image)=>dispatch({type:'ADD_IMAGE', payload: image }),
     }
 }
 
