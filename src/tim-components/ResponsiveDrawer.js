@@ -13,7 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
-
+import AddPhoto from './../reena-compononents/Addphoto';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -53,6 +53,10 @@ const ResponsiveDrawer = (props) => {
         <div>
             <div className={classes.toolbar} />
             <Divider />
+            <ListItem button key='Add Photo'>
+                        
+                        <AddPhoto />
+                    </ListItem>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem button key={text}>
@@ -62,14 +66,7 @@ const ResponsiveDrawer = (props) => {
                 ))}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+           
         </div>
     );
     return (

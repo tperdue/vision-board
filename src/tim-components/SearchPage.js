@@ -1,8 +1,10 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Template from '../reena-compononents/Template';
+
+
+import SearchBar from '../search-components/Search-bar';
+import Results from '../search-components/Results';
 
 
 const userStyles = makeStyles(theme => ({
@@ -34,16 +36,17 @@ const userStyles = makeStyles(theme => ({
 
 
 
-const Login = (props) => {
+const SearchPage = (props) => {
     const classes = userStyles();
 
     return (
         <div className={classes.content}>
-
-            <Template />
+            <SearchBar />
+            <Results />
+            
         </div>
 
     )
 }
 
-export default Login;
+export default SearchPage;

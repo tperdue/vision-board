@@ -10,6 +10,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';
+import SearchPage from './tim-components/SearchPage';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,10 +50,12 @@ function App() {
         <AppBar />
         <ResponsiveDrawer />
         <Content>
-
+        
           <Router>
             <Home path="/" />
             <Login path="/login" />
+            <SearchPage path="/search" />
+            
           </Router>
 
         </Content>

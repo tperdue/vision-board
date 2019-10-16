@@ -1,0 +1,13 @@
+.templateHolder {
+    width: 80vw;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+.firstRow {
+    flex-direction: row;
+}
