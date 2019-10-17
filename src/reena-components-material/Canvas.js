@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
+import IconButton from '@material-ui/core/IconButton';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 
 
@@ -17,8 +21,8 @@ class Canvas extends Component {
 
         this.img.onload = () => {
             ctx.drawImage(this.img, 0, 0)
-            // ctx.font = "40px Courier"
-            // ctx.fillText('hi', 210, 75)
+            ctx.font = "40px Courier"
+            ctx.fillText('hi', 210, 75)
         }
     }
 
@@ -27,14 +31,21 @@ class Canvas extends Component {
         let style = {
             height: this.props.height,
             width: this.props.width,
-            border: `2px solid ${this.props.selected ? '#D65831': 'transparent'}`,
+            border: `2px solid ${this.props.selected ? 'white': 'transparent'}`,
             backgroundColor: this.props.color,
             borderRadius: this.props.radius,
             margin: this.props.margin
         }
 
         return (
-            <canvas ref="canvas" style={style} onClick={this.props.clicked} ></canvas>
+            <div>
+                <canvas ref="canvas" style={style} onClick={this.props.clicked} ></canvas>
+                <GridListTile key={1}>
+                   
+                    }
+                />
+          </GridListTile>
+            </div>
         )
 
     }
