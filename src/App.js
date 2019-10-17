@@ -7,9 +7,9 @@ import Sidebar from './Components/Sidebar';
 
 function App(props) {
   return (
-    <div className="row">
-      <div className="sidebar"><Sidebar/></div>
-      <div><TemplateContainer /></div>
+    <div className="grid-container">
+      <Sidebar/>
+      <TemplateContainer />
     </div>
   );
 }

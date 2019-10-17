@@ -3,19 +3,19 @@ let initialState = {
         {
             id: '0',
             selected: false,
-            height: '400px',
-            width: '70%',
-            color: 'gray',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
-            margin: '0px 5px 5px 0px',
+            margin: '5px',
             url: ''
         },
         {
             id:'1',
             selected: false,
-            height: '400px',
-            width: '25%',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -24,9 +24,9 @@ let initialState = {
         {
             id:'2',
             selected: false,
-            height: '200px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -34,9 +34,9 @@ let initialState = {
         {
             id:'3',
             selected: false,
-            height: '200px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -44,9 +44,9 @@ let initialState = {
         {
             id:'4',
             selected: false,
-            height: '200px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -54,9 +54,9 @@ let initialState = {
         {
             id:'5',
             selected: false,
-            height: '200px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -64,9 +64,9 @@ let initialState = {
         {
             id:'6',
             selected: false,
-            height: '400px',
-            width: '400px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -74,9 +74,9 @@ let initialState = {
         {
             id:'7',
             selected: false,
-            height: '500px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''
@@ -84,9 +84,9 @@ let initialState = {
         {
             id:'8',
             selected: false,
-            height: '200px',
-            width: '200px',
-            color: 'pink',
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
             radius: '',
             margin: '5px',
             url: ''

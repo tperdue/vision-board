@@ -17,8 +17,8 @@ class Canvas extends Component {
 
         this.img.onload = () => {
             ctx.drawImage(this.img, 0, 0)
-            ctx.font = "40px Courier"
-            ctx.fillText('hi', 210, 75)
+            // ctx.font = "40px Courier"
+            // ctx.fillText('hi', 210, 75)
         }
     }
 
@@ -27,16 +27,14 @@ class Canvas extends Component {
         let style = {
             height: this.props.height,
             width: this.props.width,
-            border: `2px solid ${this.props.selected ? 'white': 'transparent'}`,
+            border: `2px solid ${this.props.selected ? '#D65831': 'transparent'}`,
             backgroundColor: this.props.color,
             borderRadius: this.props.radius,
             margin: this.props.margin
         }
 
         return (
-            <div>
-                <canvas ref="canvas" style={style} onClick={this.props.clicked} ></canvas>
-            </div>
+            <canvas ref="canvas" style={style} onClick={this.props.clicked} ></canvas>
         )
 
     }
