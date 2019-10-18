@@ -8,7 +8,6 @@ export default function(state=INTIAL_STATE, action){
 
 		case FETCH_SEARCH_RESULTS:
 			if (action.payload !== undefined) {
-                console.log(action.payload)
 				return { 
 					...state, 
 					all: action.payload.data.hits

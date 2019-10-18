@@ -1,6 +1,5 @@
 import axios from 'axios';
-// import { API_URL, API_KEY } from '../configs/API';
-const API_URL = 'https://pixabay.com/api';
+// import { API_KEY } from '../configs/api';
 const API_KEY = '13847963-e1c56cf842da237e744ecfc5b';
 
 
@@ -16,6 +15,7 @@ export const setSearchTerm = (searchTerm) => (dispatch) => {
 }
 
 export const fetchResults = (searchTerm) => {
+	const API_URL = 'https://pixabay.com/api';
 	return (dispatch) => {
 		var requestUrl = API_URL + '/?key=' + API_KEY + '&q=' + searchTerm + '&image_type=photo';
 		axios.get(requestUrl)
@@ -34,3 +34,4 @@ export function selectResult(resultItem) {
 		payload: resultItem
 	}
 }
+
