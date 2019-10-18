@@ -15,6 +15,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
 import AddPhoto from './../reena-compononents/Addphoto';
 import { Link } from "@reach/router";
+import SearchDialog from './../search-components/SearchDialog';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -57,6 +58,10 @@ const ResponsiveDrawer = (props) => {
             <ListItem button key='Add Photo'>
 
                 <AddPhoto />
+            </ListItem>
+            <ListItem button key='Search Dialog'>
+
+                <SearchDialog />
             </ListItem>
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
