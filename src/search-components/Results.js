@@ -6,32 +6,32 @@ import ResultCard from './Result-card';
 class Results extends React.Component {
 
 	render() {
-		const {items, setSearchTerm} = this.props
-		
+		const { items, setSearchTerm } = this.props
+
 
 		return (
-			
+
 			<div className="results">
-				{items.map( (item,index) => {
-					return  (
-							
-							<ResultCard 
-							item={item} 
-							setSearchTerm={setSearchTerm}/>
+				{items.map((item, index) => {
+					return (
+
+						<ResultCard
+							item={item}
+							key={item.id}
+							setSearchTerm={setSearchTerm} />
 
 					)
-				})}	
+				})}
 			</div>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
-	const results = state.ResultsReducer;
-	return { 
-		items: results.all,
-		searchTerm: state.searchTerm
+	return {
+		items: state.searchResultReducer.all,
+		searchTerm: state.searchTermReducer
 	};
 }
 
-export default connect ( mapStateToProps, {selectResult, setSearchTerm}) (Results);
+export default connect(mapStateToProps, { selectResult, setSearchTerm })(Results);

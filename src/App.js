@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './CSS/App.css';
 import { Provider } from 'react-redux';
 import store from './redux-store/store';
 import { makeStyles } from '@material-ui/core/styles';
@@ -51,13 +51,13 @@ function App() {
         <AppBar />
         <ResponsiveDrawer />
         <Content>
-        
+
           <Router>
             <Home path="/" />
             <Login path="/login" />
             <SearchPage path="/search" />
             <MaterialTemplate path="/material-template" />
-            
+
           </Router>
 
         </Content>
