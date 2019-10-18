@@ -7,11 +7,11 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
+            margin: '3px',
             url: ''
         },
         {
-            id:'1',
+            id: '1',
             selected: false,
             height: '100%',
             width: '100%',
@@ -22,7 +22,7 @@ let initialState = {
 
         },
         {
-            id:'2',
+            id: '2',
             selected: false,
             height: '100%',
             width: '100%',
@@ -32,7 +32,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'3',
+            id: '3',
             selected: false,
             height: '100%',
             width: '100%',
@@ -42,7 +42,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'4',
+            id: '4',
             selected: false,
             height: '100%',
             width: '100%',
@@ -52,7 +52,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'5',
+            id: '5',
             selected: false,
             height: '100%',
             width: '100%',
@@ -62,7 +62,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'6',
+            id: '6',
             selected: false,
             height: '100%',
             width: '100%',
@@ -72,7 +72,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'7',
+            id: '7',
             selected: false,
             height: '100%',
             width: '100%',
@@ -82,7 +82,7 @@ let initialState = {
             url: ''
         },
         {
-            id:'8',
+            id: '8',
             selected: false,
             height: '100%',
             width: '100%',
@@ -91,16 +91,16 @@ let initialState = {
             margin: '5px',
             url: ''
         }
-    
+
     ]
-    }
+}
 
 
 let SelectedCanvasReducer = (state = initialState, action) => {
-    
-    if(action.type === 'SELECT_CANVAS') {
-        const newCanvases = state.canvases.map((canvas)=>{
-            if(canvas.id===action.canvasId){
+
+    if (action.type === 'SELECT_CANVAS') {
+        const newCanvases = state.canvases.map((canvas) => {
+            if (canvas.id === action.canvasId) {
 
                 return {
                     ...canvas,
@@ -111,24 +111,24 @@ let SelectedCanvasReducer = (state = initialState, action) => {
                     ...canvas,
                     selected: false,
                 }
-            }  
+            }
         })
-        
-        return {
-            canvases : newCanvases
-        } 
-    }
-    else  if(action.type === 'ADD_IMAGE') {
-        const chosenCanvas = state.canvases.map((canvas) => {
-                if (canvas.selected ) {
-                    canvas.url = action.payload
-                }   
-                
-                return canvas;
 
-            });
-        return  {canvases: chosenCanvas}
-    }else {
+        return {
+            canvases: newCanvases
+        }
+    }
+    else if (action.type === 'ADD_IMAGE') {
+        const chosenCanvas = state.canvases.map((canvas) => {
+            if (canvas.selected) {
+                canvas.url = action.payload
+            }
+
+            return canvas;
+
+        });
+        return { canvases: chosenCanvas }
+    } else {
         return state;
     }
 
