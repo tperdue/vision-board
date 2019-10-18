@@ -39,7 +39,6 @@ const Login = (props) => {
 
     return (
         <div className={classes.content}>
-
             <Template />
         </div>
 
