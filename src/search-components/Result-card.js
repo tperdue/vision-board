@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const ResultCard = ( {item, setSearchTerm, style} ) => { 
+const ResultCard = ( {item, setSearchTerm, selectResult, style} ) => { 
 	return(
 		<div className="result-card"style={style}>
-			<img src={item.webformatURL} alt={item.id} />
+			<img onClick={() => {selectResult(item)}} src={item.webformatURL} alt={item.id} />
 		</div>
 	)
 }

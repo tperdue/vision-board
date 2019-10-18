@@ -14,6 +14,7 @@ class Template extends Component {
 
 
     render() {
+        console.log("Selected... ", this.props.selectedItem)
 
         const canvasjsx = this.props.canvases.map((canvasObj) => {
             return (<Canvas
@@ -24,10 +25,13 @@ class Template extends Component {
                 color={canvasObj.color}
                 radius={canvasObj.radius}
                 margin={canvasObj.margin}
-                url={canvasObj.url}
+                url={canvasObj.selected && this.props.selectedItem ? this.props.selectedItem.webformatURL : canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)
         });
+
+
+        console.log("Canvas jsx ", canvasjsx)
 
 
         return (<div className="grid-item item2">
@@ -67,7 +71,7 @@ class Template extends Component {
 
 const matchStateToProps = (state) => {
     console.log(state)
-    return { canvases: state.can.canvases }
+    return { canvases: state.can.canvases, selectedItem: state.searchResultReducer.selected, }
 }
 
 const matchDispatchToProps = (dispatch) => {

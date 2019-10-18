@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setSearchTerm, selectResult } from '../redux-store/actions/search';
+import { setSearchTerm, selectResult, addPhoto } from '../redux-store/actions/search';
 import ResultCard from './Result-card';
 
 
 class Results extends React.Component {
 
 	render() {
-		const {items, setSearchTerm} = this.props
+		const {items, setSearchTerm, selectResult, addPhoto} = this.props
 		
 		return (
 			
@@ -17,8 +17,8 @@ class Results extends React.Component {
 						<ResultCard 
 						item={item}
 						key={item.id} 
+						selectResult={(item) => { addPhoto(item.webformatURL)}}
 						setSearchTerm={setSearchTerm}/>
-						
 					)
 				})}	
 			</div>
@@ -33,6 +33,12 @@ const mapStateToProps = (state) => {
 	};
 }
 
-export default connect ( mapStateToProps, {selectResult, setSearchTerm}) (Results);
+// const matchDispatchToProps = (dispatch) => {
+// 	return {
+// 			addImage: (image)=>dispatch({type:'ADD_IMAGE', payload: image }),
+// 	}
+// }
+
+export default connect ( mapStateToProps, {selectResult, setSearchTerm, addPhoto}) (Results);
 
 

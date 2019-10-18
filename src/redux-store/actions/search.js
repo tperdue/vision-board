@@ -35,3 +35,10 @@ export function selectResult(resultItem) {
 	}
 }
 
+export function addPhoto(image){
+	console.log("Adding photo...", image)
+	return {
+		type: 'ADD_IMAGE',
+		payload: image
+	}
+}

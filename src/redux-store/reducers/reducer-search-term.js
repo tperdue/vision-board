@@ -1,4 +1,4 @@
-import { SEARCH_TERM_SELECTED } from '../actions/search';
+import { SEARCH_TERM_SELECTED, ITEM_SELECTED } from '../actions/search';
 
 export default function (state = '', action) {
 	

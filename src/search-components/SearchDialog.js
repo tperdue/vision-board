@@ -62,7 +62,7 @@ export default function FullScreenDialog() {
         </AppBar>
         <List>
           <SearchBar />
-          <Results />
+          <Results onSelect={(item) => {console.log("Selected", item)}}/>
         </List>
       </Dialog>
     </div>

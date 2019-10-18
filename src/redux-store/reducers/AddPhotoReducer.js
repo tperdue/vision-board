@@ -2,9 +2,8 @@ let initialState = {images:[]}
 
 
 let AddPhotoReducer = (state = initialState, action) => {
-        console.log(state)
+        console.log("Adding photo###", action)
         if(action.type === 'ADD_IMAGE') {
-            console.log(action)
             return {
                 ...state,
                 images: state.images.concat(action.payload)
