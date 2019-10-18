@@ -24,6 +24,7 @@ const AddPhoto = (props) => {
                 customTabs={{ "Effects": uploadcareTabEffects }}
                 tabs="file Effects"
                 effects='crop, rotate, mirror, flip, blur, sharp, enhance, grayscale, invert'
+                value={props.selectedCanvas.url}
 
 
             />
@@ -31,7 +32,11 @@ const AddPhoto = (props) => {
     </div>)
 }
 
-
+const matchStateToProps = (state) => {
+    const canvases = state.can.canvases;
+    const selectedCanvas = canvases.find(canvas => canvas.selected) || {};
+    return { selectedCanvas };
+}
 
 const matchDispatchToProps = (dispatch) => {
     return {
@@ -39,4 +44,4 @@ const matchDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, matchDispatchToProps)(AddPhoto)
+export default connect(matchStateToProps, matchDispatchToProps)(AddPhoto)
