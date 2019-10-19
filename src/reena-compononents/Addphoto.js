@@ -16,12 +16,12 @@ const AddPhoto = (props) => {
 
     return (<div >
         <p>
-            <label htmlFor='file'>Your file:</label>{' '}
+
             <Widget
                 publicKey='512c413de32b68f92c92'
                 id='file'
                 onChange={(info) => { console.log(info); props.addImage(info.cdnUrl) }}
-                customTabs={{ "Effects": uploadcareTabEffects }}
+                customTabs={{ "Effects": editTab }}
                 tabs="file Effects"
                 effects='crop, rotate, mirror, flip, blur, sharp, enhance, grayscale, invert'
                 value={props.selectedCanvas.url}
