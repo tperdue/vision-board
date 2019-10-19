@@ -11,7 +11,7 @@ import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';
 import SearchPage from './tim-components/SearchPage';
-import MaterialTemplate from './tim-components/MaterialTemplate';
+
 
 
 
@@ -30,19 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
-  const Main = ({ chidlren }) => {
-    return (
-      <div className={classes.root} >
-        <AppBar />
-        <ResponsiveDrawer />
-        <Content>
 
-          {chidlren}
-
-        </Content>
-      </div>
-    )
-  }
   return (
     <Provider store={store}>
 
@@ -56,7 +44,7 @@ function App() {
             <Home path="/" />
             <Login path="/login" />
             <SearchPage path="/search" />
-            <MaterialTemplate path="/material-template" />
+
 
           </Router>
 

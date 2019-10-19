@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { logInUser, registerUser } from '../redux-store/actions/user';
-import { navigate } from "@reach/router"
+
 import { makeStyles } from '@material-ui/core/styles';
 
 import Card from '@material-ui/core/Card';

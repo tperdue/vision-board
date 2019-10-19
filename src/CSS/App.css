@@ -117,3 +117,16 @@
   grid-row-start: 8;
   grid-row-end: 10
 }
+
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .item2 {
+
+    height: 80vh;
+    width: 80vw;
+
+  }
+
+}

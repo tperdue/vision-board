@@ -17,4 +17,7 @@ export const CLEAR_USER_DATA = 'CLEAR_USER_DATA'
 
 
 
+//full screen dialog
 
+export const OPEN_DIALOG = 'OPEN_DIALOG';
+export const CLOSE_DIALOG = 'CLOSE_DIALOG';
