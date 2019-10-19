@@ -1,0 +1,48 @@
+ .results {
+     display: grid;
+     grid-gap: 1rem;
+
+     padding: 10px;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     margin: 0 auto;
+     width: 80vw;
+ }
+
+ .result-card {
+     display: flex;
+     height: 40vh;
+     background-size: 'cover';
+     background-repeat: 'no-repeat';
+     background-position: 'center center'
+ }
+
+ .search-bar {
+     display: flex;
+     margin: 0 auto;
+     width: 50vw;
+ }
+
+ .search-bar>input {
+     flex: 5;
+     height: 2rem;
+ }
+
+ .search-bar>span {
+     flex: 2;
+
+ }
+
+ .search-bar button {
+     height: 2rem;
+ }
+
+
+ @media (min-width: 320px) and (max-width: 480px) {
+
+     .results {
+
+         grid-template-columns: 1fr;
+
+     }
+
+ }

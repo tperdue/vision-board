@@ -1,8 +1,7 @@
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
+import './CSS/App.css';
 import { Provider } from 'react-redux';
-import reducer from './redux-store/reducers';
-import middlewares from './redux-store/middlewares';
+import store from './redux-store/store';
 import { makeStyles } from '@material-ui/core/styles';
 import { Router } from "@reach/router"
 import AppBar from './tim-components/AppBar';
@@ -11,8 +10,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Login from './tim-components/Login';
 import Content from './tim-components/Content';
 import Home from './tim-components/Home';
+import SearchPage from './tim-components/SearchPage';
 
-const store = createStore(reducer, applyMiddleware(...middlewares));
+
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -28,19 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
-  const Main = ({ chidlren }) => {
-    return (
-      <div className={classes.root} >
-        <AppBar />
-        <ResponsiveDrawer />
-        <Content>
 
-          {chidlren}
-
-        </Content>
-      </div>
-    )
-  }
   return (
     <Provider store={store}>
 
@@ -53,6 +43,9 @@ function App() {
           <Router>
             <Home path="/" />
             <Login path="/login" />
+            <SearchPage path="/search" />
+
+
           </Router>
 
         </Content>
