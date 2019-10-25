@@ -21,3 +21,10 @@ export const CLEAR_USER_DATA = 'CLEAR_USER_DATA'
 
 export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';
+
+
+
+//color picker 
+
+export const PICK_COLOR_1 = 'PICK_COLOR_1';
+export const PICK_COLOR_2 = 'PICK_COLOR_2';

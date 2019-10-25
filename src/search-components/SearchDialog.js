@@ -56,7 +56,7 @@ const FullScreenDialog = (props) => {
               Search Web For Images
             </Typography>
             <Button color="inherit" onClick={handleClose}>
-              Test Button
+              Close
             </Button>
           </Toolbar>
         </AppBar>

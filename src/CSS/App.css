@@ -24,14 +24,13 @@
 }
 
 .grid-item {
-  background-color: #696464;
+  background-color: #FF0000;
   text-align: center;
   padding: 8px;
   font-size: 14px;
 }
 
 .canvas-item {
-  background-color: #696464;
   padding: 8px;
   text-align: center;
   font-size: 14px;

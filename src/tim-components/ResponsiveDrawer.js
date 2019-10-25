@@ -15,6 +15,8 @@ import { drawerWidth } from '../configs/app-constants';
 import AddPhoto from './../reena-compononents/Addphoto';
 import { Link } from "@reach/router";
 import SearchDialog from './../search-components/SearchDialog';
+import ColorPicker from './../color-picker-components/ColorPicker';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -72,6 +74,9 @@ const ResponsiveDrawer = (props) => {
             </ListItem>
 
             <Divider />
+            <ListItem>
+                <ColorPicker />
+            </ListItem>
 
         </div>
     );
