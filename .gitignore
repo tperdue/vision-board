@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#functions
+functions/node_modules
+functions/service-key.json
+

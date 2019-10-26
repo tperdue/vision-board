@@ -21,3 +21,19 @@ export const CLEAR_USER_DATA = 'CLEAR_USER_DATA'
 
 export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';
+
+
+//board
+
+export const SAVE_BOARD = 'SAVE_BOARD';
+
+
+//alerts
+
+export const UPDATE_ALERT = 'OPEN_ALERT';
+export const CLOSE_ALERT = 'CLOSE_ALERT';
+
+
+//canvas
+
+export const SELECT_CANVAS = 'SELECT_CANVAS';

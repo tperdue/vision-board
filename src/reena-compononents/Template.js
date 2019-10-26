@@ -2,14 +2,22 @@ import React from 'react';
 import { Component } from 'react';
 import Canvas from './Canvas';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import SaveBoardDialog from '../tim-components/ui/alerts-dialogs/SaveBoardAlert';
 import '../CSS/Template.css';
 import html2canvas from 'html2canvas';
+import { saveBoard } from '../redux-store/actions/board';
+import { clicked } from '../redux-store/actions/canvas';
+
 
 
 class Template extends Component {
     constructor(props) {
         super(props);
         this.state = { download: false }
+        this.saveBoardHandler = this.saveBoardHandler.bind(this)
+        this.handleSaveBoardClose = this.handleSaveBoardClose.bind(this);
     }
 
     downloadHandler() {
@@ -22,10 +30,25 @@ class Template extends Component {
         });
     }
 
+    saveBoardHandler() {
+
+        const canvases = this.props.canvases;
+        const boardTitle = 'Demo';
+        const user = 'demoUser';
+        this.props.saveBoard({ canvases, boardTitle, user });
+
+
+    }
+
+    handleSaveBoardClose() {
+
+    }
+
 
     render() {
         console.log("Selected... ", this.props.selectedItem)
-
+        const { saveBoardDialog } = this.props;
+        const { handleSaveBoardClose } = this;
         const canvasjsx = this.props.canvases.map((canvasObj) => {
             return (<Canvas
                 selected={canvasObj.selected}
@@ -43,6 +66,7 @@ class Template extends Component {
 
         return (
             <div>
+
                 <div ref="downloadable" className="grid-item item2">
                     <div className="canvas-item item3">
                         {canvasjsx[0]}
@@ -72,7 +96,25 @@ class Template extends Component {
                         {canvasjsx[8]}
                     </div>
                 </div>
-                <button onClick={this.downloadHandler.bind(this)}>Download</button>
+
+                <ButtonGroup
+                    variant="contained"
+                    color="primary"
+                    aria-label="full-width contained primary button group"
+                >
+                    <Button onClick={this.downloadHandler.bind(this)}>
+                        Download to Image
+                    </Button>
+
+
+                    <Button onClick={this.saveBoardHandler}>Save Board</Button>
+
+                </ButtonGroup>
+
+                <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
+
+
+
             </div>)
     }
 
@@ -80,14 +122,20 @@ class Template extends Component {
 }
 
 const matchStateToProps = (state) => {
-    console.log(state)
-    return { canvases: state.can.canvases, selectedItem: state.searchResultReducer.selected, }
+    //console.log(state)
+    const { alertDialogs } = state;
+
+    return {
+        canvases: state.can.canvases,
+        selectedItem: state.searchResultReducer.selected,
+        saveBoardDialog: alertDialogs.saveBoard
+    }
 }
 
-const matchDispatchToProps = (dispatch) => {
-    return {
-        clicked: (canvasId) => dispatch({ type: 'SELECT_CANVAS', canvasId }),
-    }
+
+const matchDispatchToProps = {
+    clicked,
+    saveBoard
 }
 
 

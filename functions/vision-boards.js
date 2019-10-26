@@ -1,4 +1,11 @@
+const saveBoard = async (board, firestore) => {
 
-export const saveBoard = (boardObj, firestore) => {
-    console.log(boardObj);
+    const docRef = await firestore.collection('boards').add(board);
+
+    return docRef.id;
+}
+
+
+module.exports = {
+    saveBoard
 }
