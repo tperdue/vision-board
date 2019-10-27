@@ -1,82 +1,17 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { logInUser, registerUser } from '../redux-store/actions/user';
-
-import { makeStyles } from '@material-ui/core/styles';
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import { logInUser, registerUser } from '../../../redux-store/actions/user';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import TextField from '@material-ui/core/TextField';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import TabPanel from './TabPanel';
-
-
-
-
-
-const userStyles = makeStyles(theme => ({
-    page: {
-        display: 'flex',
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        paddingTop: "5rem",
-        padding: theme.spacing(3),
-    },
-    card: {
-        minWidth: "50vw",
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
-    title: {
-        fontSize: 14,
-    },
-    pos: {
-        marginBottom: 12,
-    },
-    cardContent: {
-        display: 'flex',
-        flexDirection: 'column',
-        paddingRight: "2.5rem",
-        paddingLeft: "2.5rem"
-    },
-
-    cardActions: {
-        display: 'flex',
-
-    },
-
-    loginButton: {
-        flex: 1,
-        paddingRight: "2.5rem",
-        paddingLeft: "2.5rem",
-        textAlign: "center"
-    }
-
-
-
-
-}));
-
-
-
-
+import TabPanel from '../../TabPanel';
+import LoginSignUpForm from './ui/forms/login-signup-form';
+import userStyles from '../CSS/Login';
 
 const Login = (props) => {
     const classes = userStyles();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [newEmail, setNewEmail] = useState('');
-    const [newPassword, setNewPassword] = useState('');
     const [open, setOpen] = useState(false);
     const [tabValue, setTabValue] = useState(0);
 
@@ -88,18 +23,7 @@ const Login = (props) => {
         };
     }
 
-
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const handleNewEmailChange = (event) => {
-        setNewEmail(event.target.value);
-    }
-
-
-
-    const handleLoginBtn = (event) => {
+    const handleLogin = (email, password) => {
         const { logInUser } = props;
         const loginData = { email, password };
         setOpen(true);
@@ -108,22 +32,12 @@ const Login = (props) => {
     }
 
 
-    const handleRegisterBtn = (event) => {
+    const handleRegister = (email, password) => {
 
         const { registerUser } = props;
-        const userData = { email: newEmail, password: newPassword };
+        const userData = { email, password };
         setOpen(true);
         registerUser(userData);
-
-
-    }
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    }
-
-    const handleNewPasswordChange = (event) => {
-        setNewPassword(event.target.value);
     }
 
     const handleClose = () => {
@@ -144,7 +58,6 @@ const Login = (props) => {
         if (loggedIn) return 'Successfully logged in!'
     }
 
-
     if (props.loggedIn) {
         props.navigate('/');
     }
@@ -161,75 +74,20 @@ const Login = (props) => {
 
             <TabPanel value={tabValue} index={0}>
 
-                <Card className={classes.card}>
-                    <CardContent className={classes.cardContent}>
-                        <TextField
-                            id="username"
-                            label="Username"
-                            onChange={handleEmailChange}
-                            margin="normal"
-                            variant="outlined"
-                            value={email}
-                        />
-
-                        <TextField
-                            id="password"
-                            label="Password"
-                            onChange={handlePasswordChange}
-                            margin="normal"
-                            type="password"
-                            variant="outlined"
-                            value={password}
-                        />
-                    </CardContent>
-                    <CardActions className={classes.cardActions}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.loginButton}
-                            onClick={handleLoginBtn}
-                        >
-                            Login
-                        </Button>
-                    </CardActions>
-                </Card>
+                <LoginSignUpForm
+                    emailId="email"
+                    passwordId="password"
+                    submitForm={handleLogin}
+                />
             </TabPanel>
 
 
             <TabPanel value={tabValue} index={1}>
-
-                <Card className={classes.card}>
-                    <CardContent className={classes.cardContent}>
-                        <TextField
-                            id="newEmail"
-                            label="Email Address"
-                            onChange={handleNewEmailChange}
-                            margin="normal"
-                            variant="outlined"
-                            value={newEmail}
-                        />
-
-                        <TextField
-                            id="newPassword"
-                            label="Password"
-                            onChange={handleNewPasswordChange}
-                            margin="normal"
-                            type="password"
-                            variant="outlined"
-                            value={newPassword}
-                        />
-                    </CardContent>
-                    <CardActions className={classes.cardActions}>
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.loginButton}
-                            onClick={handleRegisterBtn}
-                        >
-                            Create Account
-                </Button>
-                    </CardActions>
-                </Card>
+                <LoginSignUpForm
+                    emailId="emailSignUp"
+                    passwordId="passwordSignUp"
+                    submitForm={handleRegister}
+                />
             </TabPanel>
 
 
