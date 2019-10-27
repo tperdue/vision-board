@@ -6,40 +6,36 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function AlertDialog() {
-    const [open, setOpen] = React.useState(false);
+export default function AlertDialog({ info, handleClose }) {
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleDialogClose = () => {
+        console.log('closing')
+        handleClose()
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
+
+    const { open, title, message } = info;
 
     return (
         <div>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-                Open alert dialog
-      </Button>
+
             <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={handleDialogClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous location data to
-                        Google, even when no apps are running.
-          </DialogContentText>
+                        {message}
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleDialogClose} color="primary">
                         Dismiss
           </Button>
-                    <Button onClick={handleClose} color="primary" autoFocus>
+                    <Button onClick={handleDialogClose} color="primary" autoFocus>
                         Login
           </Button>
                 </DialogActions>

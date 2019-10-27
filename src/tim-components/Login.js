@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { logInUser, registerUser } from '../../../redux-store/actions/user';
+import { logInUser, registerUser } from '../redux-store/actions/user';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import TabPanel from '../../TabPanel';
+import TabPanel from './TabPanel';
 import LoginSignUpForm from './ui/forms/login-signup-form';
 import userStyles from '../CSS/Login';
 
@@ -89,8 +89,6 @@ const Login = (props) => {
                     submitForm={handleRegister}
                 />
             </TabPanel>
-
-
 
             <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
 

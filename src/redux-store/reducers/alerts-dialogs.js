@@ -7,7 +7,7 @@ const initialState = {
         message: ''
     },
 
-    signInBeforeDownload: {
+    saveBeforeSignIn: {
         open: false,
         pending: false,
         title: '',
