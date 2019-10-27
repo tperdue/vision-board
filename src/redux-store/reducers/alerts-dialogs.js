@@ -5,6 +5,13 @@ const initialState = {
         pending: false,
         title: '',
         message: ''
+    },
+
+    signInBeforeDownload: {
+        open: false,
+        pending: false,
+        title: '',
+        message: ''
     }
 };
 

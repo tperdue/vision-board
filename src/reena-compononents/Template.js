@@ -9,7 +9,7 @@ import '../CSS/Template.css';
 import html2canvas from 'html2canvas';
 import { saveBoard } from '../redux-store/actions/board';
 import { clicked } from '../redux-store/actions/canvas';
-
+import { updateAlertDialog } from '../redux-store/actions/alert-dialogs'
 
 
 class Template extends Component {
@@ -35,15 +35,22 @@ class Template extends Component {
         const canvases = this.props.canvases;
         const boardTitle = 'Demo';
         const user = 'demoUser';
-        this.props.saveBoard({ canvases, boardTitle, user });
+        const uid = this.props.user.uid;
+        const { updateAlertDialog } = this.props;
+        if (uid) {
+            this.props.saveBoard({ canvases, boardTitle, user });
+        }
+        else {
+            updateAlertDialog({
 
-
+            })
+            console.log('You must be signed in to save a board')
+        }
     }
 
     handleSaveBoardClose() {
 
     }
-
 
     render() {
         console.log("Selected... ", this.props.selectedItem)
@@ -106,37 +113,32 @@ class Template extends Component {
                         Download to Image
                     </Button>
 
-
                     <Button onClick={this.saveBoardHandler}>Save Board</Button>
 
                 </ButtonGroup>
 
                 <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
 
-
-
             </div>)
     }
-
-
 }
 
 const matchStateToProps = (state) => {
     //console.log(state)
-    const { alertDialogs } = state;
+    const { alertDialogs, user } = state;
 
     return {
         canvases: state.can.canvases,
         selectedItem: state.searchResultReducer.selected,
-        saveBoardDialog: alertDialogs.saveBoard
+        saveBoardDialog: alertDialogs.saveBoard,
+        user
     }
 }
 
-
 const matchDispatchToProps = {
     clicked,
-    saveBoard
+    saveBoard,
+    updateAlertDialog
 }
-
 
 export default connect(matchStateToProps, matchDispatchToProps)(Template);
