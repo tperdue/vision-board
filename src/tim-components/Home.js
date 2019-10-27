@@ -2,7 +2,7 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import Template from '../reena-compononents/Template';
+import VerticalTabs from '../reena-compononents/TemplateSelector';
 
 
 const userStyles = makeStyles(theme => ({
@@ -39,7 +39,7 @@ const Login = (props) => {
 
     return (
         <div className={classes.content}>
-            <Template />
+            <VerticalTabs />
         </div>
 
     )

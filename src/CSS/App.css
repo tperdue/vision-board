@@ -21,6 +21,7 @@
   background-color: #E9E5DD;
   padding: 10px;
   grid-template-columns: 1fr 3fr;
+
 }
 
 .grid-item {
@@ -35,6 +36,7 @@
   padding: 8px;
   text-align: center;
   font-size: 14px;
+
 }
 
 

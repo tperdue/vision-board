@@ -7,8 +7,9 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '3px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
         },
         {
             id: '1',
@@ -17,8 +18,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
 
         },
         {
@@ -28,8 +31,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '3',
@@ -38,8 +43,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '4',
@@ -48,8 +55,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '5',
@@ -58,8 +67,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '6',
@@ -68,8 +79,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '7',
@@ -78,8 +91,10 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '8',
@@ -88,8 +103,22 @@ let initialState = {
             width: '100%',
             color: '#EEEEEE',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
+        },
+        {
+            id: '9',
+            selected: false,
+            height: '100%',
+            width: '100%',
+            color: '#EEEEEE',
+            radius: '50%',
+            margin: '0px',
+            url: '',
+            template: ''
+
         }
 
     ]
