@@ -178,7 +178,8 @@ import Template3 from './Template3';
 import Template4 from './Template4';
 import {ReactComponent as TemplateIcon} from '../Assets/Template.svg';
 import {ReactComponent as Template2Icon} from '../Assets/Template2.svg';
-import {ReactComponent as Template3Icon} from '../Assets/Template3.svg'
+import {ReactComponent as Template3Icon} from '../Assets/Template3.svg';
+import {ReactComponent as Template4Icon} from '../Assets/Template4.svg';
 
 
 
@@ -235,13 +236,13 @@ export default function ScrollableTabsButtonPrevent() {
           value={value}
           onChange={handleChange}
           variant="scrollable"
-          scrollButtons="off"
+          scrollButtons="on"
           aria-label="scrollable prevent tabs example"
         >
           <Tab icon={<TemplateIcon />} aria-label="phone" {...a11yProps(0)} />
           <Tab icon={<Template2Icon />} aria-label="favorite" {...a11yProps(1)} />
           <Tab icon={<Template3Icon />} aria-label="person" {...a11yProps(2)} />
-          <Tab icon={<HelpIcon />} aria-label="help" {...a11yProps(3)} />
+          <Tab icon={<Template4Icon />} aria-label="help" {...a11yProps(3)} />
          
         </Tabs>
       </AppBar>

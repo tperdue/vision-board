@@ -43,31 +43,31 @@ class Template4 extends Component {
         return (
             <div>
                 <div ref="downloadable" className="grid-item item2">
-                    <div className="canvas-item item3">
+                    <div className="canvas-item item3T4">
                         {canvasjsx[0]}
                     </div>
-                    <div className="canvas-item item4">
+                    <div className="canvas-item item4T4">
                         {canvasjsx[1]}
                     </div>
-                    <div className="canvas-item item5">
+                    <div className="canvas-item item5T4">
                         {canvasjsx[2]}
                     </div>
-                    <div className="canvas-item item6">
+                    <div className="canvas-item item6T4">
                         {canvasjsx[3]}
                     </div>
-                    <div className="canvas-item item7">
+                    <div className="canvas-item item7T4">
                         {canvasjsx[4]}
                     </div>
-                    <div className="canvas-item item8">
+                    <div className="canvas-item item8T4">
                         {canvasjsx[5]}
                     </div>
-                    <div className="canvas-item item9">
+                    <div className="canvas-item item9T4">
                         {canvasjsx[6]}
                     </div>
-                    <div className="canvas-item item10">
+                    <div className="canvas-item item10T4">
                         {canvasjsx[7]}
                     </div>
-                    <div className="canvas-item item11">
+                    <div className="canvas-item item11T4">
                         {canvasjsx[8]}
                     </div>
                 </div>
