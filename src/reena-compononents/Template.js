@@ -8,9 +8,13 @@ import SaveBoardDialog from '../tim-components/ui/alerts-dialogs/SaveBoardAlert'
 import SaveBeforeSignInDialog from '../tim-components/ui/alerts-dialogs/SaveBeforeSignIn';
 import '../CSS/Template.css';
 import html2canvas from 'html2canvas';
+<<<<<<< HEAD
 import { saveBoard } from '../redux-store/actions/board';
 import { clicked } from '../redux-store/actions/canvas';
 import { updateAlertDialog } from '../redux-store/actions/alert-dialogs'
+=======
+import ContainedButtons from './Button';
+>>>>>>> reenapart2
 
 
 
@@ -121,6 +125,12 @@ class Template extends Component {
                         {canvasjsx[8]}
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <ContainedButtons  downloadClick={this.downloadHandler.bind(this)}/>
+            </div>)
+    }
+>>>>>>> reenapart2
 
                 <ButtonGroup
                     variant="contained"

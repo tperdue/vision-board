@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { drawerWidth } from '../configs/app-constants';
 import { toggleDrawer } from '../redux-store/actions/drawer';
 import AccountLogin from './AccountLogin';
+import HomeIcon from '../reena-compononents/Logo'
 
 
 const useStyles = makeStyles(theme => ({
@@ -37,7 +38,7 @@ const ButtonAppBar = (props) => {
 
 
 
-        <AppBar position="fixed" className={classes.appBar}>
+        <AppBar position="fixed" className={classes.appBar} style={{backgroundColor: "#3c4245"}}>
             <Toolbar>
                 <IconButton
                     color="inherit"
@@ -48,8 +49,10 @@ const ButtonAppBar = (props) => {
                 >
                     <MenuIcon />
                 </IconButton>
+
                 <Typography variant="h6" noWrap className={classes.title}>
-                    Vision Board
+                    PicCollage
+                    {/* <HomeIcon /> */}
                     </Typography>
                 <AccountLogin />
             </Toolbar>

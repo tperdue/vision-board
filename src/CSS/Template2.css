@@ -1,0 +1,102 @@
+.row {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .sidebar {
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: rgb(82, 80, 80);
+  
+  }
+  
+  .column1 {
+    flex-direction: column;
+  }
+  
+  
+  .grid-container {
+    display: grid;
+    grid-gap: 10px;
+    background-color: #dfcdc3;
+    padding: 10px;
+    grid-template-columns: 1fr 3fr;
+  }
+  
+  
+  .canvas-itemT2 {
+    background-color: #3c4245;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+    
+  }
+  
+  
+  .item1T2 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1
+  }
+  
+  .item2 {
+    display: grid;
+    height: 80vh;
+    width: 50vw;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin: auto;
+  }
+  
+  .item3T2 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5
+  }
+  
+  .item4T2 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 5;
+  }
+  
+  .item5T2 {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 9
+  }
+  
+  .item6T2 {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    grid-row-start: 5;
+    grid-row-end: 9;
+  }
+  
+  .item7T2 {
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 6
+  }
+  
+  
+  
+  
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+  
+    .item2T2 {
+  
+      height: 80vh;
+      width: 80vw;
+  
+    }
+  
+  }

@@ -23,13 +23,11 @@ export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';
 
 
-<<<<<<< HEAD
 
 //color picker 
 
 export const PICK_COLOR_1 = 'PICK_COLOR_1';
 export const PICK_COLOR_2 = 'PICK_COLOR_2';
-=======
 //board
 
 export const SAVE_BOARD = 'SAVE_BOARD';
@@ -44,4 +42,3 @@ export const CLOSE_ALERT = 'CLOSE_ALERT';
 //canvas
 
 export const SELECT_CANVAS = 'SELECT_CANVAS';
->>>>>>> tim-beta
