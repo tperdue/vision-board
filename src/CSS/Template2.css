@@ -18,17 +18,18 @@
   .grid-container {
     display: grid;
     grid-gap: 10px;
-    background-color: #E9E5DD;
+    background-color: #dfcdc3;
     padding: 10px;
     grid-template-columns: 1fr 3fr;
   }
   
   
   .canvas-itemT2 {
-    background-color: #696464;
+    background-color: #3c4245;
     padding: 8px;
     text-align: center;
     font-size: 14px;
+    
   }
   
   

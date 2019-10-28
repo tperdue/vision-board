@@ -38,7 +38,7 @@ const Login = (props) => {
     const classes = userStyles();
 
     return (
-        <div className={classes.content}>
+        <div className={classes.content} style={{backgroundColor: "#transparent"}}>
             <VerticalTabs />
         </div>
 

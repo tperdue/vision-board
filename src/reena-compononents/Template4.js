@@ -4,6 +4,8 @@ import Canvas from './Canvas';
 import { connect } from 'react-redux';
 import '../CSS/Template4.css';
 import html2canvas from 'html2canvas';
+import ContainedButtons from './Button';
+
 
 
 class Template4 extends Component {
@@ -71,7 +73,7 @@ class Template4 extends Component {
                         {canvasjsx[8]}
                     </div>
                 </div>
-                <button onClick={this.downloadHandler.bind(this)}>Download</button>
+                <ContainedButtons  downloadClick={this.downloadHandler.bind(this)}/>
             </div>)
     }
 
