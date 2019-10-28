@@ -25,21 +25,14 @@
 }
 
 .grid-item {
-<<<<<<< HEAD
-  background-color: #FF0000;
-=======
   background-color: #3c4245;
->>>>>>> reenapart2
   text-align: center;
   padding: 8px;
   font-size: 14px;
 }
 
 .canvas-item {
-<<<<<<< HEAD
-=======
   background-color: #3c4245;
->>>>>>> reenapart2
   padding: 8px;
   text-align: center;
   font-size: 14px;
@@ -188,7 +181,7 @@
   background-color: #000;
 }
 
- /* .uploadcare--widget__button, .uploadcare--widget__button:hover {
+/* .uploadcare--widget__button, .uploadcare--widget__button:hover {
 	padding: 20px;
 	background-color: ;
 	border: 3px dashed #2c003a;

@@ -8,13 +8,10 @@ import SaveBoardDialog from '../tim-components/ui/alerts-dialogs/SaveBoardAlert'
 import SaveBeforeSignInDialog from '../tim-components/ui/alerts-dialogs/SaveBeforeSignIn';
 import '../CSS/Template.css';
 import html2canvas from 'html2canvas';
-<<<<<<< HEAD
 import { saveBoard } from '../redux-store/actions/board';
 import { clicked } from '../redux-store/actions/canvas';
 import { updateAlertDialog } from '../redux-store/actions/alert-dialogs'
-=======
 import ContainedButtons from './Button';
->>>>>>> reenapart2
 
 
 
@@ -132,23 +129,23 @@ class Template extends Component {
     }
 >>>>>>> reenapart2
 
-                <ButtonGroup
-                    variant="contained"
-                    color="primary"
-                    aria-label="full-width contained primary button group"
-                >
-                    <Button onClick={this.downloadHandler.bind(this)}>
-                        Download to Image
+        <ButtonGroup
+            variant="contained"
+            color="primary"
+            aria-label="full-width contained primary button group"
+        >
+            <Button onClick={this.downloadHandler.bind(this)}>
+                Download to Image
                     </Button>
 
-                    <Button onClick={this.saveBoardHandler}>Save Board</Button>
+            <Button onClick={this.saveBoardHandler}>Save Board</Button>
 
-                </ButtonGroup>
+        </ButtonGroup>
 
-                <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
-                <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
+            <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
+            <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
 
-            </div>)
+            </div >)
     }
 }
 
