@@ -122,30 +122,24 @@ class Template extends Component {
                         {canvasjsx[8]}
                     </div>
                 </div>
-<<<<<<< HEAD
-=======
-                <ContainedButtons  downloadClick={this.downloadHandler.bind(this)}/>
-            </div>)
-    }
->>>>>>> reenapart2
 
-        <ButtonGroup
-            variant="contained"
-            color="primary"
-            aria-label="full-width contained primary button group"
-        >
-            <Button onClick={this.downloadHandler.bind(this)}>
-                Download to Image
+                <ButtonGroup
+                    variant="contained"
+                    color="primary"
+                    aria-label="full-width contained primary button group"
+                >
+                    <Button onClick={this.downloadHandler.bind(this)}>
+                        Download to Image
                     </Button>
 
-            <Button onClick={this.saveBoardHandler}>Save Board</Button>
+                    <Button onClick={this.saveBoardHandler}>Save Board</Button>
 
-        </ButtonGroup>
+                </ButtonGroup>
 
-            <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
-            <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
+                <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
+                <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
 
-            </div >)
+            </div>)
     }
 }
 
