@@ -21,10 +21,11 @@
   background-color: #E9E5DD;
   padding: 10px;
   grid-template-columns: 1fr 3fr;
+
 }
 
 .grid-item {
-  background-color: #FF0000;
+  background-color: #3c4245;
   text-align: center;
   padding: 8px;
   font-size: 14px;
@@ -34,6 +35,7 @@
   padding: 8px;
   text-align: center;
   font-size: 14px;
+
 }
 
 
@@ -129,3 +131,63 @@
   }
 
 }
+
+.PrivateTabIndicator-colorSecondary-234 {
+  background-color: #00c9b7;
+}
+
+.PrivateTabIndicator-root-232.PrivateTabIndicator-colorSecondary-234.MuiTabs-indicator {
+  background-color: #00c9b7;
+
+}
+
+.MuiDrawer-root {
+  background-color: #3c4245;
+
+}
+
+.MuiPaper-elevation0.MuiDrawer-paper.makeStyles-drawerPaper-131.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft {
+  background-color: #3c4245;
+
+}
+
+.makeStyles-content-202 {
+  background-image: url('../Assets/background.png');
+}
+
+.MuiBox-root.MuiBox-root-237 {
+  padding-top: 0px;
+}
+
+.MuiBox-root.MuiBox-root-238 {
+  padding-top: 0px;
+}
+
+.MuiBox-root.MuiBox-root-239 {
+  padding-top: 0px;
+}
+
+.MuiBox-root.MuiBox-root-240 {
+  padding-top: 0px;
+}
+
+.uploadcare--widget__button_type_open {
+  background: transparent;
+  border: 1px solid #ffe837;
+}
+
+.uploadcare--widget__button:hover {
+  background-color: #000;
+}
+
+ /* .uploadcare--widget__button, .uploadcare--widget__button:hover {
+	padding: 20px;
+	background-color: ;
+	border: 3px dashed #2c003a;
+	border-radius: 0;
+	font-family: Sans-serif;
+	font-weight: 800;
+}
+
+.uploadcare--widget__button:hover {
+	background-color: #000; */

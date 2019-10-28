@@ -4,10 +4,7 @@ import React, { Component } from 'react';
 
 
 class Canvas extends Component {
-    constructor(props) {
-        super(props);
-        //this.img = new Image();
-    }
+   
 
     componentDidMount() {
         //const canvas = this.refs.canvas

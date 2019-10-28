@@ -5,20 +5,23 @@ let initialState = {
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '3px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
         },
         {
             id: '1',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
 
         },
         {
@@ -26,70 +29,96 @@ let initialState = {
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '3',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '4',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '5',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '6',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '7',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
         },
         {
             id: '8',
             selected: false,
             height: '100%',
             width: '100%',
-            color: '#EEEEEE',
+            color: '#eae9e9',
             radius: '',
-            margin: '5px',
-            url: ''
+            margin: '',
+            url: '',
+            template: ''
+
+        },
+        {
+            id: '9',
+            selected: false,
+            height: '100%',
+            width: '100%',
+            color: '#eae9e9',
+            radius: '50%',
+            margin: '0px',
+            url: '',
+            template: ''
+
         }
 
     ]
