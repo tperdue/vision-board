@@ -71,9 +71,11 @@ class Template extends Component {
     }
 
     render() {
+
         console.log("Selected... ", this.props.selectedItem)
         const { saveBoardDialog, saveBeforeSignInDialog } = this.props;
         const { handleSaveBoardClose, handleSaveBeforeSignInClose } = this;
+
         const canvasjsx = this.props.canvases.map((canvasObj) => {
 
             return (<Canvas
@@ -83,7 +85,6 @@ class Template extends Component {
                 border={canvasObj.border}
                 color={canvasObj.color}
                 radius={canvasObj.radius}
-                // margin={canvasObj.margin}
                 url={canvasObj.selected && this.props.selectedItem ? this.props.selectedItem.webformatURL : canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)
@@ -93,7 +94,8 @@ class Template extends Component {
         return (
             <div>
 
-                <div ref="downloadable" className="grid-item item2">
+                <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
+
                     <div className="canvas-item item3">
                         {canvasjsx[0]}
                     </div>
@@ -144,14 +146,17 @@ class Template extends Component {
 }
 
 const matchStateToProps = (state) => {
+
     //console.log(state)
     const { alertDialogs, user } = state;
+
 
     return {
         canvases: state.can.canvases,
         selectedItem: state.searchResultReducer.selected,
         saveBoardDialog: alertDialogs.saveBoard,
         saveBeforeSignInDialog: alertDialogs.saveBeforeSignIn,
+        bgColor: state.color.bgColor,
         user
     }
 }

@@ -1,19 +1,23 @@
-import { PICK_COLOR_1, PICK_COLOR_2 } from '../action-types';
+import { BACKGROUND_COLOR } from '../action-types';
+// const BACKGROUND_COLOR = 'ACTIONS/BACKGROUND_COLOR'
+
+export const changeBgColor = (color) => ({
+    type: BACKGROUND_COLOR,
+    payload: color,
+});
+
 const initialState = {
-    color1: '#000000',
-    color2: '#000000'
+    bgColor: '#3c4245',
 }
 
 export default (state = initialState, action) => {
-
-
     switch (action.type) {
-        case PICK_COLOR_1:
-            return { color1: '#000000' }
-
-        case PICK_COLOR_2:
-            return { color2: '#000000' }
+        case BACKGROUND_COLOR: 
+            return {
+                bgColor: action.payload,
+            }
         default:
-            return state
+            return state;
+        
     }
 }

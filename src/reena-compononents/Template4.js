@@ -35,7 +35,6 @@ class Template4 extends Component {
                 border={canvasObj.border}
                 color={canvasObj.color}
                 radius={canvasObj.radius}
-                margin={canvasObj.margin}
                 url={canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)
@@ -44,7 +43,7 @@ class Template4 extends Component {
 
         return (
             <div>
-                <div ref="downloadable" className="grid-item item2">
+                <div ref="downloadable" className="grid-item item2" style={{backgroundColor: this.props.bgColor}}>
                     <div className="canvas-item item3T4">
                         {canvasjsx[0]}
                     </div>
@@ -82,7 +81,10 @@ class Template4 extends Component {
 
 const matchStateToProps = (state) => {
     console.log(state)
-    return { canvases: state.can.canvases }
+    return { 
+        canvases: state.can.canvases,
+        bgColor: state.color.bgColor, 
+    }
 }
 
 const matchDispatchToProps = (dispatch) => {

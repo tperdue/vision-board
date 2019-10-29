@@ -56,7 +56,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function ScrollableTabsButtonPrevent() {
+export default function  ScrollableTabsButtonPrevent(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
