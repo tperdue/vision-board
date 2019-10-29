@@ -17,7 +17,7 @@ export const setSearchTerm = (searchTerm) => (dispatch) => {
 export const fetchResults = (searchTerm) => {
 	const API_URL = 'https://pixabay.com/api';
 	return (dispatch) => {
-		var requestUrl = API_URL + '/?key=' + API_KEY + '&q=' + searchTerm + '&image_type=photo';
+		var requestUrl = API_URL + '/?key=' + API_KEY + '&q=' + searchTerm + '&image_type=photo' + '&order=popular&per_page=50';
 		axios.get(requestUrl)
 			.then((request) => {
 				dispatch({
