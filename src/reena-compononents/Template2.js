@@ -35,7 +35,6 @@ class Template2 extends Component {
                 border={canvasObj.border}
                 color={canvasObj.color}
                 radius={canvasObj.radius}
-                // margin={canvasObj.margin}
                 url={canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)

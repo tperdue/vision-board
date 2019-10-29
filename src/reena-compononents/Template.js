@@ -35,7 +35,6 @@ class Template extends Component {
                 border={canvasObj.border}
                 color={canvasObj.color}
                 radius={canvasObj.radius}
-                // margin={canvasObj.margin}
                 url={canvasObj.selected && this.props.selectedItem ? this.props.selectedItem.webformatURL : canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)

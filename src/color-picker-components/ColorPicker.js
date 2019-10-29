@@ -30,7 +30,7 @@ class ColorPicker extends React.Component {
 						'#FFFF00', '#00FF00', 
 						'#00FFFF', '#0000FF', 
 						'#FF00FF',  '#000000', 
-						'#9B9B9B', '#FFFFFF']} />
+						'#3c4245', '#FFFFFF']} />
 
 			</div>
 		)
