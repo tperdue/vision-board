@@ -6,6 +6,7 @@ import AddPhotoReducer from './AddPhotoReducer';
 import searchResultReducer from './reducer-results';
 import searchTermReducer from './reducer-search-term';
 import fullScreenDialog from './full-screen-dialog';
+import color from './color-picker';
 
 export default combineReducers({
     drawer,
@@ -14,5 +15,6 @@ export default combineReducers({
     searchTermReducer,
     fullScreenDialog,
     pho: AddPhotoReducer,
-    can: SelectedCanvasReducer
+    can: SelectedCanvasReducer,
+    color,
 })

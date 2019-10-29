@@ -45,7 +45,7 @@ class Template extends Component {
 
         return (
             <div>
-                <div ref="downloadable" className="grid-item item2">
+                <div ref="downloadable" className="grid-item item2" style={{backgroundColor: this.props.bgColor}}>
                     <div className="canvas-item item3">
                         {canvasjsx[0]}
                     </div>
@@ -82,8 +82,12 @@ class Template extends Component {
 }
 
 const matchStateToProps = (state) => {
-    console.log(state)
-    return { canvases: state.can.canvases, selectedItem: state.searchResultReducer.selected, }
+    
+    return { 
+        canvases: state.can.canvases, 
+        selectedItem: state.searchResultReducer.selected, 
+        bgColor: state.bgcolor.bgColor,
+    }
 }
 
 const matchDispatchToProps = (dispatch) => {
