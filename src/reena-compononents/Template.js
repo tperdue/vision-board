@@ -26,7 +26,6 @@ class Template extends Component {
 
 
     render() {
-        console.log("Selected... ", this.props.selectedItem)
 
         const canvasjsx = this.props.canvases.map((canvasObj) => {
             return (<Canvas
@@ -82,11 +81,11 @@ class Template extends Component {
 }
 
 const matchStateToProps = (state) => {
-    
+    console.log(state)
     return { 
         canvases: state.can.canvases, 
         selectedItem: state.searchResultReducer.selected, 
-        bgColor: state.bgcolor.bgColor,
+        bgColor: state.color.bgColor,
     }
 }
 

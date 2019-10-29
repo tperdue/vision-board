@@ -1,15 +1,4 @@
-import { PICK_COLOR_1, PICK_COLOR_2 } from '../action-types'
-
-export const pickColor1 = () => {
-    return {
-        type: PICK_COLOR_1
-    }
-}
+// import { BACKGROUND_COLOR } from '../action-types'
 
 
-export const pickColor2 = () => {
-    return {
-        type: PICK_COLOR_2
-    }
-}
 

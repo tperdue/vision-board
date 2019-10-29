@@ -72,7 +72,7 @@ const matchStateToProps = (state) => {
     console.log(state)
     return { 
         canvases: state.can.canvases,
-        // bgColor: state.bgcolor.bgColor,
+        bgColor: state.color.bgColor,
     }
 }
 
