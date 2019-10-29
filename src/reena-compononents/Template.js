@@ -43,6 +43,7 @@ class Template extends Component {
 
         return (
             <div>
+                <br/>
                 <div ref="downloadable" className="grid-item item2" style={{backgroundColor: this.props.bgColor}}>
                     <div className="canvas-item item3">
                         {canvasjsx[0]}
