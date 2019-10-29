@@ -9,7 +9,10 @@ let initialState = {
             radius: '',
             margin: '',
             url: '',
-            template: ''
+            template: '',
+            templatePosition: {
+
+            }
         },
         {
             id: '1',

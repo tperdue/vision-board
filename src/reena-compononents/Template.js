@@ -2,11 +2,9 @@ import React from 'react';
 import { Component } from 'react';
 import Canvas from './Canvas';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import SaveBoardDialog from '../tim-components/ui/alerts-dialogs/SaveBoardAlert';
 import SaveBeforeSignInDialog from '../tim-components/ui/alerts-dialogs/SaveBeforeSignIn';
-import '../CSS/Template.css';
+import '../CSS/TemplateStyles.css';
 import html2canvas from 'html2canvas';
 import { saveBoard } from '../redux-store/actions/board';
 import { clicked } from '../redux-store/actions/canvas';
@@ -19,6 +17,7 @@ class Template extends Component {
     constructor(props) {
         super(props);
         this.state = { download: false }
+        this.downloadHandler = this.downloadHandler.bind(this)
         this.saveBoardHandler = this.saveBoardHandler.bind(this)
         this.handleSaveBoardClose = this.handleSaveBoardClose.bind(this);
         this.handleSaveBeforeSignInClose = this.handleSaveBeforeSignInClose.bind(this);
@@ -76,67 +75,41 @@ class Template extends Component {
         const { saveBoardDialog, saveBeforeSignInDialog } = this.props;
         const { handleSaveBoardClose, handleSaveBeforeSignInClose } = this;
 
-        const canvasjsx = this.props.canvases.map((canvasObj) => {
-
-            return (<Canvas
-                selected={canvasObj.selected}
-                height={canvasObj.height}
-                width={canvasObj.width}
-                border={canvasObj.border}
-                color={canvasObj.color}
-                radius={canvasObj.radius}
-                url={canvasObj.selected && this.props.selectedItem ? this.props.selectedItem.webformatURL : canvasObj.url}
-                key={canvasObj.id}
-                clicked={() => { this.props.clicked(canvasObj.id) }} />)
-        });
+        const { templateClass, templateCells } = this.props.template;
+        const clicked = this.props.clicked;
+        const canvasjsx = this.props.canvases
+            .filter((canvas, index) => templateCells[index])
+            .map((canvasObj, index) => {
+                const classString = `${templateClass} ${templateCells[index]}`;
+                return (
+                    <div className={classString} key={canvasObj.id}>
+                        <Canvas
+                            selected={canvasObj.selected}
+                            height={canvasObj.height}
+                            width={canvasObj.width}
+                            border={canvasObj.border}
+                            color={canvasObj.color}
+                            radius={canvasObj.radius}
+                            url={canvasObj.url}
+                            key={canvasObj.id}
+                            clicked={() => { clicked(canvasObj.id) }} />
+                    </div>
+                )
+            });
 
 
         return (
             <div>
 
                 <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
-
-                    <div className="canvas-item item3">
-                        {canvasjsx[0]}
-                    </div>
-                    <div className="canvas-item item4">
-                        {canvasjsx[1]}
-                    </div>
-                    <div className="canvas-item item5">
-                        {canvasjsx[2]}
-                    </div>
-                    <div className="canvas-item item6">
-                        {canvasjsx[3]}
-                    </div>
-                    <div className="canvas-item item7">
-                        {canvasjsx[4]}
-                    </div>
-                    <div className="canvas-item item8">
-                        {canvasjsx[5]}
-                    </div>
-                    <div className="canvas-item item9">
-                        {canvasjsx[6]}
-                    </div>
-                    <div className="canvas-item item10">
-                        {canvasjsx[7]}
-                    </div>
-                    <div className="canvas-item item11">
-                        {canvasjsx[8]}
-                    </div>
+                    {canvasjsx}
                 </div>
 
-                <ButtonGroup
-                    variant="contained"
-                    color="primary"
-                    aria-label="full-width contained primary button group"
-                >
-                    <Button onClick={this.downloadHandler.bind(this)}>
-                        Download to Image
-                    </Button>
 
-                    <Button onClick={this.saveBoardHandler}>Save Board</Button>
+                <ContainedButtons downloadClick={this.downloadHandler} saveClick={this.saveBoardHandler} />
 
-                </ButtonGroup>
+
+
 
                 <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
                 <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
@@ -148,7 +121,7 @@ class Template extends Component {
 const matchStateToProps = (state) => {
 
     //console.log(state)
-    const { alertDialogs, user } = state;
+    const { alertDialogs, user, template } = state;
 
 
     return {
@@ -157,6 +130,7 @@ const matchStateToProps = (state) => {
         saveBoardDialog: alertDialogs.saveBoard,
         saveBeforeSignInDialog: alertDialogs.saveBeforeSignIn,
         bgColor: state.color.bgColor,
+        template,
         user
     }
 }

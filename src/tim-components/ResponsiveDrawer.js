@@ -43,6 +43,9 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
+    hover: {
+        backgroundColor: 'white'
+    }
 }));
 
 const ResponsiveDrawer = (props) => {
@@ -60,7 +63,7 @@ const ResponsiveDrawer = (props) => {
 
                 <AddPhoto />
             </ListItem>
-            <ListItem button key='Search Dialog'>
+            <ListItem button key='Search Dialog' className={classes.dense}>
 
                 <SearchDialog />
             </ListItem>

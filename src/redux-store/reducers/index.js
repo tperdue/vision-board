@@ -6,7 +6,7 @@ import AddPhotoReducer from './AddPhotoReducer';
 import searchResultReducer from './reducer-results';
 import searchTermReducer from './reducer-search-term';
 import fullScreenDialog from './full-screen-dialog';
-
+import template from './template'
 import board from './board';
 import alertDialogs from './alerts-dialogs';
 
@@ -24,4 +24,5 @@ export default combineReducers({
     board,
     alertDialogs,
     color,
+    template
 })
