@@ -20,7 +20,6 @@ class ColorPicker extends React.Component {
 	render() {
 		return (
 			<div>
-				
 				<SketchPicker 
 					width={180} 
 					disableAlpha={true}
