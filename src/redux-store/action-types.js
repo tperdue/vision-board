@@ -28,15 +28,20 @@ export const CLOSE_DIALOG = 'CLOSE_DIALOG';
 
 export const PICK_COLOR_1 = 'PICK_COLOR_1';
 export const PICK_COLOR_2 = 'PICK_COLOR_2';
+
+
 //board
-
 export const SAVE_BOARD = 'SAVE_BOARD';
-
+export const GET_USER_BOARDS = 'GET_USER_BOARDS';
+export const UPDATE_CURRENT_BOARD = 'UPDATE_CURRENT_BOARD';
+export const UPDATE_USER_BOARDS = 'UPDATE_USER_BOARDS';
+export const DELETE_USER_BOARD = 'DELETE_USER_BOARD';
 
 //alerts
 
 export const UPDATE_ALERT = 'OPEN_ALERT';
 export const CLOSE_ALERT = 'CLOSE_ALERT';
+
 
 
 //canvas

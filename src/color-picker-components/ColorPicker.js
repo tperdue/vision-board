@@ -20,16 +20,16 @@ class ColorPicker extends React.Component {
 	render() {
 		return (
 			<div>
-				<SketchPicker 
-					width={180} 
+				<SketchPicker
+					width={180}
 					disableAlpha={true}
 					onChangeComplete={this.handleColorChange}
 					presetColors={
-						['#FF0000', ,'#FF9B00',
-						'#FFFF00', '#00FF00', 
-						'#00FFFF', '#0000FF', 
-						'#FF00FF',  '#000000', 
-						'#3c4245', '#FFFFFF']} />
+						['#FF0000', , '#FF9B00',
+							'#FFFF00', '#00FF00',
+							'#00FFFF', '#0000FF',
+							'#FF00FF', '#000000',
+							'#3c4245', '#FFFFFF']} />
 
 			</div>
 		)
@@ -39,7 +39,7 @@ class ColorPicker extends React.Component {
 
 
 function mapStateToProps(state) {
-	console.log('STATE', state);
+
 	return {
 
 	}

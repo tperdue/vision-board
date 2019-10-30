@@ -5,17 +5,15 @@ import PropTypes from 'prop-types';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import HomeIcon from '@material-ui/icons/Home';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
+import Button from '@material-ui/core/Button';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { drawerWidth } from '../configs/app-constants';
 import AddPhoto from './../reena-compononents/Addphoto';
 import { Link } from "@reach/router";
 import SearchDialog from './../search-components/SearchDialog';
 import ColorPicker from './../color-picker-components/ColorPicker';
+import ManageBoardsDialog from '../tim-components/ui/alerts-dialogs/ManageBoards';
 
 
 const useStyles = makeStyles(theme => ({
@@ -43,14 +41,20 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-    hover: {
-        backgroundColor: 'white'
+    outlinedPrimary: {
+        color: 'white',
+        borderColor: 'white'
+
     }
+
 }));
+
+
 
 const ResponsiveDrawer = (props) => {
     const { container } = props;
     const classes = useStyles();
+
     const theme = useTheme();
 
 
@@ -63,17 +67,13 @@ const ResponsiveDrawer = (props) => {
 
                 <AddPhoto />
             </ListItem>
-            <ListItem button key='Search Dialog' className={classes.dense}>
+            <ListItem button key='Search Dialog' >
 
                 <SearchDialog />
             </ListItem>
             <ListItem button>
-                <ListItemIcon><HomeIcon /></ListItemIcon>
-                <Link to="/">
 
-                    <ListItemText primary='Home' />
-
-                </Link>
+                <ManageBoardsDialog />
             </ListItem>
 
             <Divider />

@@ -4,9 +4,10 @@ import Canvas from './Canvas';
 import { connect } from 'react-redux';
 import SaveBoardDialog from '../tim-components/ui/alerts-dialogs/SaveBoardAlert';
 import SaveBeforeSignInDialog from '../tim-components/ui/alerts-dialogs/SaveBeforeSignIn';
+import EnterBoardTitleDialog from '../tim-components/ui/alerts-dialogs/EnterBoardTitle';
 import '../CSS/TemplateStyles.css';
 import html2canvas from 'html2canvas';
-import { saveBoard } from '../redux-store/actions/board';
+import { saveBoard, updateCurrentBoard } from '../redux-store/actions/board';
 import { clicked } from '../redux-store/actions/canvas';
 import { updateAlertDialog } from '../redux-store/actions/alert-dialogs'
 import ContainedButtons from './Button';
@@ -21,6 +22,7 @@ class Template extends Component {
         this.saveBoardHandler = this.saveBoardHandler.bind(this)
         this.handleSaveBoardClose = this.handleSaveBoardClose.bind(this);
         this.handleSaveBeforeSignInClose = this.handleSaveBeforeSignInClose.bind(this);
+        this.updateOrSave = this.updateOrSave.bind(this);
     }
 
     downloadHandler() {
@@ -33,14 +35,39 @@ class Template extends Component {
         });
     }
 
+    updateOrSave(currentBoard) {
+        const { updateAlertDialog, updateCurrentBoard, user, canvases, saveBoard } = this.props;
+        const board = {
+            ...currentBoard,
+            canvases,
+            uid: user.uid,
+
+        }
+        if (!board.id) {
+            updateAlertDialog({
+                alertKey: 'enterBoardTitle',
+                open: true,
+                pending: false,
+                message: '',
+                title: 'Please Enter a Title for this Board'
+            })
+
+            updateCurrentBoard(board);
+        }
+        else {
+            saveBoard(board);
+        }
+    }
+
     saveBoardHandler() {
 
-        const canvases = this.props.canvases;
-        const boardTitle = 'Demo';
+
         const uid = this.props.user.uid;
         const { updateAlertDialog } = this.props;
+        const { currentBoard } = this.props.board;
+
         if (uid) {
-            this.props.saveBoard({ canvases, boardTitle, uid });
+            this.updateOrSave(currentBoard)
         }
         else {
             updateAlertDialog({
@@ -72,7 +99,7 @@ class Template extends Component {
     render() {
 
         console.log("Selected... ", this.props.selectedItem)
-        const { saveBoardDialog, saveBeforeSignInDialog } = this.props;
+        const { saveBoardDialog, saveBeforeSignInDialog, enterBoardTitleDialog } = this.props;
         const { handleSaveBoardClose, handleSaveBeforeSignInClose } = this;
 
         const { templateClass, templateCells } = this.props.template;
@@ -100,20 +127,14 @@ class Template extends Component {
 
         return (
             <div>
-
                 <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
                     {canvasjsx}
                 </div>
 
-
                 <ContainedButtons downloadClick={this.downloadHandler} saveClick={this.saveBoardHandler} />
-
-
-
-
                 <SaveBoardDialog info={saveBoardDialog} handleClose={handleSaveBoardClose} />
                 <SaveBeforeSignInDialog info={saveBeforeSignInDialog} handleClose={handleSaveBeforeSignInClose} />
-
+                <EnterBoardTitleDialog info={enterBoardTitleDialog} />
             </div>)
     }
 }
@@ -121,24 +142,26 @@ class Template extends Component {
 const matchStateToProps = (state) => {
 
     //console.log(state)
-    const { alertDialogs, user, template } = state;
-
+    const { alertDialogs, user, template, board } = state;
 
     return {
         canvases: state.can.canvases,
         selectedItem: state.searchResultReducer.selected,
         saveBoardDialog: alertDialogs.saveBoard,
         saveBeforeSignInDialog: alertDialogs.saveBeforeSignIn,
+        enterBoardTitleDialog: alertDialogs.enterBoardTitle,
         bgColor: state.color.bgColor,
         template,
-        user
+        user,
+        board
     }
 }
 
 const matchDispatchToProps = {
     clicked,
     saveBoard,
-    updateAlertDialog
+    updateAlertDialog,
+    updateCurrentBoard
 }
 
 export default connect(matchStateToProps, matchDispatchToProps)(Template);

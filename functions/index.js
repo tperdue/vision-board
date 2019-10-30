@@ -4,6 +4,7 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const serviceAccount = require("./service-key.json");
 const cors = require('cors')({ origin: true });
+const userController = require('./users');
 
 
 
@@ -37,10 +38,24 @@ exports.saveBoard = functions.https.onRequest((request, response) => {
                 error
             })
         }
-
-
-
-
     })
 
 })
+
+
+exports.getUserBoards = functions.https.onRequest((request, response) => {
+
+    const boards = [];
+    return cors(request, response, async () => {
+        const { userToken } = request.body;
+        const decodedToken = await admin.auth().verifyIdToken(userToken);
+        const uid = decodedToken.uid;
+        const boardsSnapShot = await userController.getBoardByUserID(uid, firestore);
+        boardsSnapShot.forEach(doc => {
+            boards.push(doc.data());
+        })
+        return response.json({
+            boards
+        })
+    })
+});

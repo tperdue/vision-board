@@ -12,6 +12,13 @@ const initialState = {
         pending: false,
         title: '',
         message: ''
+    },
+
+    enterBoardTitle: {
+        open: false,
+        pending: false,
+        title: '',
+        message: ''
     }
 };
 

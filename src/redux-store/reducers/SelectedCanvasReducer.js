@@ -129,7 +129,7 @@ let initialState = {
 
 
 let SelectedCanvasReducer = (state = initialState, action) => {
-    console.log("Action name... got here...", action.type)
+    //console.log("Action name... got here...", action.type)
 
     if (action.type === 'SELECT_CANVAS') {
         const newCanvases = state.canvases.map((canvas) => {
@@ -152,7 +152,7 @@ let SelectedCanvasReducer = (state = initialState, action) => {
         }
     }
     else if (action.type === 'ADD_IMAGE') {
-        console.log("Payload from widget", action)
+        //console.log("Payload from widget", action)
         const chosenCanvas = state.canvases.map((canvas) => {
             if (canvas.selected) {
                 canvas.url = action.payload

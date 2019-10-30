@@ -9,15 +9,7 @@
     grid-row-end: 1
 }
 
-.item2 {
-    display: grid;
-    height: 80vh;
-    width: 50vw;
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 1
-}
+
 
 .item3 {
     grid-column-start: 1;
