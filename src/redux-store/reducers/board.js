@@ -1,4 +1,10 @@
-import { SAVE_BOARD, UPDATE_USER_BOARDS, UPDATE_CURRENT_BOARD } from '../action-types';
+import {
+    SAVE_BOARD,
+    UPDATE_USER_BOARDS,
+    UPDATE_CURRENT_BOARD,
+
+
+} from '../action-types';
 import { saveBoard } from '../actions/board';
 
 const initialState = {

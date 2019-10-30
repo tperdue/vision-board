@@ -1,3 +1,4 @@
+import { LOAD_CANVASES } from '../action-types'
 let initialState = {
     canvases: [
         {
@@ -149,6 +150,12 @@ let SelectedCanvasReducer = (state = initialState, action) => {
 
         return {
             canvases: newCanvases
+        }
+    }
+    else if (action.type === LOAD_CANVASES) {
+        return {
+            ...state,
+            canvases: action.payload.canvases
         }
     }
     else if (action.type === 'ADD_IMAGE') {

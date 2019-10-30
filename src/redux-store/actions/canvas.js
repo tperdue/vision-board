@@ -1,4 +1,4 @@
-import { SELECT_CANVAS } from '../action-types';
+import { SELECT_CANVAS, LOAD_CANVASES } from '../action-types';
 
 export const clicked = (canvasId) => {
 
@@ -7,4 +7,13 @@ export const clicked = (canvasId) => {
         canvasId
     }
 
+}
+
+export const loadCanvases = (canvases) => {
+    return {
+        type: LOAD_CANVASES,
+        payload: {
+            canvases
+        }
+    }
 }

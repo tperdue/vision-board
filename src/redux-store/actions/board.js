@@ -45,6 +45,65 @@ export const saveBoard = (board) => async (dispatch) => {
     }
 }
 
+export const deleteBoard = (board) => async (dispatch) => {
+
+
+    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/saveBoard';
+    //const url = 'http://localhost:5000/vision-board-51991/us-central1/saveBoard';
+    const currentUser = firebase.auth().currentUser;
+    let response = null;
+
+
+    try {
+
+        dispatch(updateAlertDialog({
+            pending: true,
+            open: true,
+            title: 'Please Wait. Deleting Board...',
+            message: '',
+            alertKey: 'saveBoard'
+        }))
+
+        if (currentUser) {
+            const userToken = await firebase.auth().currentUser.getIdToken(true);
+            //Implement logic
+            //const response = await axios.post(url, {board, userToken});
+
+            if (response.data.hasError) {
+
+            }
+
+            else {
+                dispatch(updateAlertDialog({
+                    pending: false,
+                    open: false,
+                    title: '',
+                    message: '',
+                    alertKey: 'saveBoard'
+                }))
+
+                dispatch(getUserBoards());
+            }
+
+
+
+        }
+
+        else {
+            console.log('user not logged in')
+        }
+
+
+
+
+
+    }
+    catch (error) {
+        console.log(error);
+
+    }
+}
+
 
 export const updateUserBoards = (boards) => {
 
@@ -63,20 +122,20 @@ export const getUserBoards = () => async (dispatch) => {
     const currentUser = firebase.auth().currentUser;
 
 
-    if (currentUser) {
-        const userToken = await firebase.auth().currentUser.getIdToken(true);
-        const userBoardsResponse = await axios.post(url, { userToken });
-        const { boards } = userBoardsResponse.data;
 
-        dispatch(updateUserBoards(boards));
-    }
-
-    else {
-        console.log('user not logged in')
-    }
     try {
 
+        if (currentUser) {
+            const userToken = await firebase.auth().currentUser.getIdToken(true);
+            const userBoardsResponse = await axios.post(url, { userToken });
+            const { boards } = userBoardsResponse.data;
 
+            dispatch(updateUserBoards(boards));
+        }
+
+        else {
+            console.log('user not logged in')
+        }
 
     }
     catch (error) {

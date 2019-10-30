@@ -52,7 +52,10 @@ exports.getUserBoards = functions.https.onRequest((request, response) => {
         const uid = decodedToken.uid;
         const boardsSnapShot = await userController.getBoardByUserID(uid, firestore);
         boardsSnapShot.forEach(doc => {
-            boards.push(doc.data());
+
+            const boardObj = doc.data();
+            boardObj.id = doc.id;
+            boards.push(boardObj);
         })
         return response.json({
             boards
