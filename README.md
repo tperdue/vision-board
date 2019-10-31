@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PicCollage
 
-## Available Scripts
+A web application that allows a user to create picture collage using pictures from the user's local file system or pictures searched from the web.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+ * Node version 12.13.0 or higher
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `npm run build`
+A step by step series of examples that tell you how to get a development env running
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone git repo
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+git clone git@github.com:tperdue/vision-board.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+And repeat
 
-### `npm run eject`
+```
+until finished
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+End with an example of getting some data out of the system or using it for a little demo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Add additional notes about how to deploy this on a live system
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With (no particular order)
 
-### Code Splitting
+* [React ](https://github.com/facebook/react) - A declarative, efficient, and flexible JavaScript library for building user interfaces. 
+* [Material UI](https://github.com/mui-org/material-ui) - A React UI component library.
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Authors
 
-### Analyzing the Bundle Size
+* **Reena Gouldbourne** - *Initial work* - [ReenaGo](https://github.com/ReenaGo)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## License
 
-### Advanced Configuration
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Acknowledgments
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
