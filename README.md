@@ -70,7 +70,7 @@ Redux Reducer: src/redux-store/reducers/user.js
 
 * **Michael Le** - Image Download,Image Web Search, Template Color Picker - [LeMichael07](https://github.com/LeMichael07)
 * **Reena Gouldbourne** - Canvase,Template Selection, Application Styling - [ReenaGo](https://github.com/ReenaGo)
-* **Tim Perdue** - User Authentication, User Board Management, Alert & Dialogs- [TPerdue](https://github.com/tperdue)
+* **Tim Perdue** - [User Authentication](##user-authentication), User Board Management, Alert & Dialogs- [TPerdue](https://github.com/tperdue)
 * **Veronica Johnson** - Canvas Styling, Canvas Text Selection - [JOHNSOV5](https://github.com/JOHNSOV5)
 
 
