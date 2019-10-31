@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { updateAlertDialog } from './alert-dialogs';
-import { UPDATE_USER_BOARDS, UPDATE_CURRENT_BOARD } from '../action-types';
+import { UPDATE_USER_BOARDS, UPDATE_CURRENT_BOARD, CLEAR_BOARD } from '../action-types';
 import firebase from '../firebase';
 
 
@@ -48,8 +48,8 @@ export const saveBoard = (board) => async (dispatch) => {
 export const deleteBoard = (board) => async (dispatch) => {
 
 
-    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/saveBoard';
-    //const url = 'http://localhost:5000/vision-board-51991/us-central1/saveBoard';
+    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/deleteUserBoard';
+    //const url = 'http://localhost:5000/vision-board-51991/us-central1/deleteUserBoard';
     const currentUser = firebase.auth().currentUser;
     let response = null;
 
@@ -59,15 +59,16 @@ export const deleteBoard = (board) => async (dispatch) => {
         dispatch(updateAlertDialog({
             pending: true,
             open: true,
-            title: 'Please Wait. Deleting Board...',
+            title: 'Deleting Board. Please Wait',
             message: '',
-            alertKey: 'saveBoard'
+            alertKey: 'actionPending'
         }))
 
         if (currentUser) {
             const userToken = await firebase.auth().currentUser.getIdToken(true);
-            //Implement logic
-            //const response = await axios.post(url, {board, userToken});
+
+
+            const response = await axios.post(url, { board, userToken });
 
             if (response.data.hasError) {
 
@@ -79,10 +80,13 @@ export const deleteBoard = (board) => async (dispatch) => {
                     open: false,
                     title: '',
                     message: '',
-                    alertKey: 'saveBoard'
+                    alertKey: 'actionPending'
                 }))
 
                 dispatch(getUserBoards());
+
+
+
             }
 
 
@@ -90,7 +94,13 @@ export const deleteBoard = (board) => async (dispatch) => {
         }
 
         else {
-            console.log('user not logged in')
+            dispatch(updateAlertDialog({
+                pending: false,
+                open: true,
+                title: 'Unable to Delete. Please log in first.',
+                message: 'You must be logged in to perform this action.',
+                alertKey: 'saveBeforeSignIn'
+            }))
         }
 
 
@@ -151,5 +161,11 @@ export const updateCurrentBoard = (currentBoard) => {
         payload: {
             currentBoard
         }
+    }
+}
+
+export const clearBoard = () => {
+    return {
+        type: CLEAR_BOARD
     }
 }

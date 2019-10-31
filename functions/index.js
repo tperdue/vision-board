@@ -62,3 +62,22 @@ exports.getUserBoards = functions.https.onRequest((request, response) => {
         })
     })
 });
+
+exports.deleteUserBoard = functions.https.onRequest((request, response) => {
+    return cors(request, response, async () => {
+        const { userToken, board } = request.body;
+        const decodedToken = await admin.auth().verifyIdToken(userToken);
+        const uid = decodedToken.uid;
+        const docSnapShot = await userController.getSingleBoardByUserID(board.id, firestore);
+        const doc = await docSnapShot.get();
+        if (doc.exists && doc.data().uid === uid) {
+            const deleteStatus = await docSnapShot.delete();
+            return response.json({
+                status: 'cool'
+            })
+        }
+
+
+
+    })
+})

@@ -19,6 +19,20 @@ const initialState = {
         pending: false,
         title: '',
         message: ''
+    },
+
+    actionSuccessful: {
+        open: false,
+        pending: false,
+        title: '',
+        message: ''
+    },
+
+    actionPending: {
+        open: false,
+        pending: false,
+        title: '',
+        message: ''
     }
 };
 

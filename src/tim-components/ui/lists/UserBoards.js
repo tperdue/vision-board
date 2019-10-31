@@ -52,6 +52,17 @@ const UserBoardsList = (props) => {
 
 
     }
+
+    const handleDeleteBoard = (id) => {
+
+        const { userBoards } = board;
+
+        const matchedBoard = userBoards.find(board => board.id === id);
+
+        deleteBoard(matchedBoard);
+
+
+    }
     return (
         <Paper className={classes.root}>
             <Table className={classes.table} aria-label="simple table">
@@ -87,7 +98,9 @@ const UserBoardsList = (props) => {
                                 <TableCell align="right">
 
                                     <Tooltip title="Delete Board">
-                                        <IconButton classes={iconClasses}>
+                                        <IconButton classes={iconClasses}
+                                            onClick={() => { handleDeleteBoard(row.id) }}
+                                        >
                                             <DeleteIcon />
                                         </IconButton>
                                     </Tooltip>

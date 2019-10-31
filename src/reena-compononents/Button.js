@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import SaveBoardButton from '../tim-components/ui/buttons/save-board';
 import '../CSS/Button.css'
 
 const useStyles = makeStyles(theme => ({
@@ -13,11 +14,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+const buttonContainerStyles = {
+  textAlign: 'center',
+  width: "50vw",
+  margin: "0 auto"
+}
+
 export default function ContainedButtons(props) {
   const classes = useStyles();
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={buttonContainerStyles}>
 
 
       <ButtonGroup
@@ -29,7 +37,8 @@ export default function ContainedButtons(props) {
           Download to Image
                     </Button>
 
-        <Button onClick={props.saveClick} className={classes.button}>Save Board</Button>
+        <SaveBoardButton />
+        <Button onClick={props.saveClick} className={classes.button}>Clear Board</Button>
 
       </ButtonGroup>
     </div>

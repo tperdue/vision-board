@@ -7,6 +7,13 @@ const getBoardByUserID = async (uid, firestore) => {
     return querySnapShot;
 }
 
+const getSingleBoardByUserID = async (boardId, firestore) => {
+
+    const docSnapShot = await firestore.collection('boards').doc(boardId);
+    return docSnapShot;
+}
+
 module.exports = {
-    getBoardByUserID
+    getBoardByUserID,
+    getSingleBoardByUserID
 }

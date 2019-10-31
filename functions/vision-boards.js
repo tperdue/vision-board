@@ -1,6 +1,18 @@
 const saveBoard = async (board, firestore) => {
 
-    const docRef = await firestore.collection('boards').add(board);
+    let docRef = null;
+    const { id } = board
+    delete board.id;
+    if (id) {
+        docRef = await firestore.collection('boards').add(board);
+    }
+
+    else {
+
+        docRef = firestore.collection('boards').doc(id).set(board)
+    }
+
+
 
     return docRef.id;
 }

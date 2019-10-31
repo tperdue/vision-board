@@ -12,6 +12,8 @@ import Slide from '@material-ui/core/Slide';
 import UserBoardsList from '../lists/UserBoards';
 import { connect } from 'react-redux'
 import { getUserBoards } from '../../../redux-store/actions/board'
+import ActionSuccessfulDialog from './ActionSuccessfulDialog';
+import ActionPendingDialog from './SaveBoardAlert';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -36,11 +38,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const ManageBoardsDialog = ({ user, board, getUserBoards }) => {
+const ManageBoardsDialog = (props) => {
 
-
+    const { user, board, getUserBoards, actionSuccessfulDialogInfo, actionPendingDialogInfo } = props;
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -83,16 +87,23 @@ const ManageBoardsDialog = ({ user, board, getUserBoards }) => {
                 <UserBoardsList userBoards={board.userBoards} />
             </Dialog>
 
+            <ActionPendingDialog info={actionPendingDialogInfo} />
+            <ActionSuccessfulDialog info={actionSuccessfulDialogInfo} />
+
+
         </>
     )
 }
 
 
 const mapStateToProps = (state) => {
-    const { user, board } = state;
+    const { user, board, alertDialogs } = state;
+    console.log(state.alertDialogs)
     return {
         user,
-        board
+        board,
+        actionPendingDialogInfo: alertDialogs.actionPending,
+        actionSuccessfulDialogInfo: alertDialogs.actionSuccessful
     }
 
 }
