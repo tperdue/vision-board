@@ -13,21 +13,30 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
 Clone git repo
 
 ```
 git clone git@github.com:tperdue/vision-board.git
 ```
 
-And repeat
+Change into directory where repo was cloned.
 
 ```
-until finished
+cd vision-board
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Install dependencies.
+
+```
+npm install 
+```
+
+Run project.
+
+```
+npm start 
+```
+
 
 
 
@@ -36,15 +45,35 @@ End with an example of getting some data out of the system or using it for a lit
 
 Add additional notes about how to deploy this on a live system
 
+## Project Details
+
+### User Authentication
+
+The application's user authentication system is using Firebase
+
+Code:
+```
+Login React Component: src/tim-component/Login.js 
+Redux Actions: src/redux-store/actions/user.js
+Redux Reducer: src/redux-store/reducers/user.js
+
+```
+
 ## Built With (no particular order)
 
 * [React ](https://github.com/facebook/react) - A declarative, efficient, and flexible JavaScript library for building user interfaces. 
 * [Material UI](https://github.com/mui-org/material-ui) - A React UI component library.
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+* [Firebase](https://github.com/firebase/firebase-js-sdk) - Used for serverless backend infrastructure.
 
 ## Authors
 
-* **Reena Gouldbourne** - *Initial work* - [ReenaGo](https://github.com/ReenaGo)
+* **Michael Le** - Image Download,Image Web Search, Template Color Picker - [LeMichael07](https://github.com/LeMichael07)
+* **Reena Gouldbourne** - Canvase,Template Selection, Application Styling - [ReenaGo](https://github.com/ReenaGo)
+* **Tim Perdue** - User Authentication, User Board Management, Alert & Dialogs- [TPerdue](https://github.com/tperdue)
+* **Veronica Johnson** - Canvas Styling, Canvas Text Selection - [JOHNSOV5](https://github.com/JOHNSOV5)
+
+
 
 
 
