@@ -4,12 +4,12 @@ const saveBoard = async (board, firestore) => {
     const { id } = board
     delete board.id;
     if (id) {
-        docRef = await firestore.collection('boards').add(board);
+        docRef = await firestore.collection('boards').doc(id).set(board)
     }
 
     else {
+        docRef = await firestore.collection('boards').add(board);
 
-        docRef = firestore.collection('boards').doc(id).set(board)
     }
 
 
@@ -17,6 +17,10 @@ const saveBoard = async (board, firestore) => {
     return docRef.id;
 }
 
+
+const deleteBoard = async (params, firestore) => {
+
+}
 
 module.exports = {
     saveBoard

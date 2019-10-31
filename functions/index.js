@@ -26,6 +26,7 @@ exports.saveBoard = functions.https.onRequest((request, response) => {
             const board = request.body;
             console.log('saving board');
             const docRefId = await visionBoardController.saveBoard(board, firestore);
+
             response.json({
                 hasError: false,
                 docId: docRefId
@@ -74,6 +75,12 @@ exports.deleteUserBoard = functions.https.onRequest((request, response) => {
             const deleteStatus = await docSnapShot.delete();
             return response.json({
                 status: 'cool'
+            })
+        }
+
+        else {
+            return response.json({
+                hasError: true
             })
         }
 

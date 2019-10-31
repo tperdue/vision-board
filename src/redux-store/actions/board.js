@@ -25,6 +25,7 @@ export const saveBoard = (board) => async (dispatch) => {
         }
 
         else {
+            console.log('done');
             dispatch(updateAlertDialog({
                 pending: false,
                 open: false,
@@ -51,7 +52,7 @@ export const deleteBoard = (board) => async (dispatch) => {
     const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/deleteUserBoard';
     //const url = 'http://localhost:5000/vision-board-51991/us-central1/deleteUserBoard';
     const currentUser = firebase.auth().currentUser;
-    let response = null;
+
 
 
     try {
