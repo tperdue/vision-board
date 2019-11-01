@@ -14,6 +14,8 @@ import {
 
 
 import firebase from '../firebase';
+import { resetBoard, clearBoard } from './board';
+
 import store from '../store';
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -36,19 +38,11 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 
     else {
-        const userObj = {
-            uid: '',
-            emailVerified: false,
-            photoUrl: '',
-            email: '',
-            displayName: '',
-            loggedIn: false,
-            pendingLogin: false,
-            errorLoggingIn: false
 
-        };
+        console.log(user)
+        store.dispatch(clearBoard());
+        store.dispatch(resetBoard());
 
-        store.dispatch(getUser(userObj));
 
 
     }

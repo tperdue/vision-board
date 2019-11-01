@@ -4,7 +4,8 @@ import {
     UPDATE_USER_BOARDS,
     UPDATE_CURRENT_BOARD,
     CLEAR_CURRENT_BOARD,
-    CLEAR_BOARD
+    CLEAR_BOARD,
+    RESET_BOARD
 } from '../action-types';
 import firebase from '../firebase';
 
@@ -187,5 +188,12 @@ export const updateCurrentBoard = (currentBoard) => {
 export const clearBoard = () => {
     return {
         type: CLEAR_BOARD
+    }
+}
+
+export const resetBoard = () => {
+
+    return {
+        type: RESET_BOARD
     }
 }

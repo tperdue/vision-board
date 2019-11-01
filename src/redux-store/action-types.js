@@ -40,6 +40,7 @@ export const LOAD_CANVASES = 'LOAD_USER_BOARD';
 export const CHANGE_BOARD_TITLE = 'CHANGE_BOARD_TITLE';
 export const CLEAR_BOARD = 'CLEAR_BOARD';
 export const CLEAR_CURRENT_BOARD = 'CLEAR_CURRENT_BOARD';
+export const RESET_BOARD = 'RESET_BOARD'
 
 
 //alerts
