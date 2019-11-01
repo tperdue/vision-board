@@ -15,6 +15,7 @@ import { getUserBoards } from '../../../redux-store/actions/board'
 import ActionSuccessfulDialog from './ActionSuccessfulDialog';
 import ActionPendingDialog from './SaveBoardAlert';
 
+
 const useStyles = makeStyles(theme => ({
     appBar: {
         position: 'relative',
@@ -89,6 +90,7 @@ const ManageBoardsDialog = (props) => {
 
             <ActionPendingDialog info={actionPendingDialogInfo} />
             <ActionSuccessfulDialog info={actionSuccessfulDialogInfo} />
+
 
 
         </>

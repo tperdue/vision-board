@@ -33,6 +33,14 @@ const initialState = {
         pending: false,
         title: '',
         message: ''
+    },
+
+    changeBoardTitle: {
+        open: false,
+        pending: false,
+        title: '',
+        message: '',
+        boardId: ''
     }
 };
 
@@ -42,9 +50,9 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_ALERT:
 
-            const { alertKey, open, pending, message, title } = action.payload;
+            const { alertKey, open, pending, message, title, ...theRest } = action.payload;
             const updatedStated = { ...state };
-            updatedStated[alertKey] = { open, pending, message, title }
+            updatedStated[alertKey] = { open, pending, message, title, ...theRest }
             return updatedStated;
 
 
