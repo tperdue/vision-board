@@ -17,6 +17,7 @@ class Template extends Component {
     }
 
     downloadHandler() {
+        window.scrollTo(0,0);
         html2canvas(this.refs.downloadable, { useCORS: true }).then(function (canvas) {
             const data = canvas.toDataURL("image/png");
             const a = document.createElement('a');
