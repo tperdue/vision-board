@@ -58,6 +58,7 @@ const EnterBoardTitleDialog = ({ info, updateAlertDialog, currentBoard, saveBoar
             message: '',
             title: 'Please Enter a Title for this Board'
         });
+        setBoardTitle('')
     }
     const handleInputChange = (event) => {
         setBoardTitle(event.target.value);

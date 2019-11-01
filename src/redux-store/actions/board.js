@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { updateAlertDialog } from './alert-dialogs';
-import { UPDATE_USER_BOARDS, UPDATE_CURRENT_BOARD, CLEAR_BOARD } from '../action-types';
+import {
+    UPDATE_USER_BOARDS,
+    UPDATE_CURRENT_BOARD,
+    CLEAR_CURRENT_BOARD,
+    CLEAR_BOARD
+} from '../action-types';
 import firebase from '../firebase';
 
 
@@ -20,6 +25,7 @@ export const saveBoard = (board) => async (dispatch) => {
         }))
 
         const response = await axios.post(url, board);
+
         if (response.data.hasError) {
 
         }
@@ -84,6 +90,8 @@ export const deleteBoard = (board) => async (dispatch) => {
                     alertKey: 'actionPending'
                 }))
 
+                dispatch(clearCurrentBoard(board.id));
+                dispatch(clearBoard());
                 dispatch(getUserBoards());
 
 
@@ -112,6 +120,17 @@ export const deleteBoard = (board) => async (dispatch) => {
     catch (error) {
         console.log(error);
 
+    }
+}
+
+
+export const clearCurrentBoard = (boardId) => {
+
+    return {
+        type: CLEAR_CURRENT_BOARD,
+        payload: {
+            boardId
+        }
     }
 }
 

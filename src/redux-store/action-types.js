@@ -39,6 +39,7 @@ export const DELETE_USER_BOARD = 'DELETE_USER_BOARD';
 export const LOAD_CANVASES = 'LOAD_USER_BOARD';
 export const CHANGE_BOARD_TITLE = 'CHANGE_BOARD_TITLE';
 export const CLEAR_BOARD = 'CLEAR_BOARD';
+export const CLEAR_CURRENT_BOARD = 'CLEAR_CURRENT_BOARD';
 
 
 //alerts

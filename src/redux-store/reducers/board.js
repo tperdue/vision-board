@@ -2,7 +2,7 @@ import {
     SAVE_BOARD,
     UPDATE_USER_BOARDS,
     UPDATE_CURRENT_BOARD,
-    CLEAR_BOARD
+    CLEAR_CURRENT_BOARD
 
 
 } from '../action-types';
@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
                 currentBoard: action.payload.currentBoard
             }
 
-        case CLEAR_BOARD:
+        case CLEAR_CURRENT_BOARD:
             if (state.currentBoard.id === action.payload.boardId) {
                 return {
                     ...state,
