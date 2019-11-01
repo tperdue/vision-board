@@ -79,7 +79,6 @@ class Template4 extends Component {
                 width={canvasObj.width}
                 border={canvasObj.border}
                 color={canvasObj.color}
-                radius={canvasObj.radius}
                 url={canvasObj.url}
                 key={canvasObj.id}
                 clicked={() => { this.props.clicked(canvasObj.id) }} />)
