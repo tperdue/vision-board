@@ -13,7 +13,7 @@ import Results from '../search-components/Results';
 import SearchBar from '../search-components/Search-bar';
 import { connect } from 'react-redux'
 import { closeDialog, openDialog } from '../redux-store/actions/full-screen-dialog';
-
+import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles(theme => ({
   appBar: {
     position: 'relative',
@@ -52,8 +52,9 @@ const FullScreenDialog = (props) => {
   const fullScreenDialogState = props.fullScreenDialog.open;
   return (
     <div>
+      <SearchIcon/>
       <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.outlinedPrimary}>
-        Search web...
+         Search web...
       </Button>
       <Dialog fullScreen open={fullScreenDialogState} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={[classes.appBar, classes.colorPrimary].join(' ')}>

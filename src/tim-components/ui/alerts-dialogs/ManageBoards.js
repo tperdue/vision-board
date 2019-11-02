@@ -14,6 +14,7 @@ import { connect } from 'react-redux'
 import { getUserBoards } from '../../../redux-store/actions/board'
 import ActionSuccessfulDialog from './ActionSuccessfulDialog';
 import ActionPendingDialog from './SaveBoardAlert';
+import ViewQuiltIcon from '@material-ui/icons/ViewQuilt';
 
 
 const useStyles = makeStyles(theme => ({
@@ -67,7 +68,7 @@ const ManageBoardsDialog = (props) => {
 
     return (
         <>
-
+            <ViewQuiltIcon />
             <Button variant="outlined" color="primary" className={classes.outlinedPrimary} onClick={handleClickOpen}>
                 Manage Boards
                     </Button>

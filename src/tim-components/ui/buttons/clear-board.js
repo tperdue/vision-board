@@ -7,6 +7,8 @@ import { clearCurrentBoard, clearBoard } from '../../../redux-store/actions/boar
 const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(1),
+        color: "#f6f078",
+        borderColor: "#f6f078" 
     },
     input: {
         display: 'none',
@@ -25,7 +27,7 @@ const ClearBoardButton = ({ clearCurrentBoard, currentBoard, clearBoard }) => {
         <Button
             onClick={handleClick}
             className={classes.button}
-            variant="contained"
+            variant="outlined"
             color="secondary"
 
         >Clear Board</Button>
