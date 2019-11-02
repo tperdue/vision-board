@@ -28,8 +28,6 @@ class Canvas extends Component {
             width: this.props.width,
             border: borderStyle,
             backgroundColor: this.props.color,
-            borderRadius: this.props.radius,
-            // margin: this.props.margin,
             backgroundImage: `url("${this.props.url}")`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',

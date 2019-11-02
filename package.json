@@ -19,6 +19,8 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "uploadcare": "^0.4.5",
+    "uploadcare-widget": "^3.7.9",
     "uploadcare-widget-tab-effects": "^1.4.6"
   },
   "scripts": {

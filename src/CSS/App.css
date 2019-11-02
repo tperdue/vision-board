@@ -1,3 +1,5 @@
+.uploadcare--widget__text {}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -41,7 +43,7 @@
 
 .item2 {
   display: grid;
-  height: 80vh;
+  height: 60vh;
   margin: 0 auto;
   width: 50vw;
   grid-column-start: 2;

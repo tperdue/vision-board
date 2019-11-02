@@ -24,7 +24,8 @@ class Template2 extends Component {
     }
 
     downloadHandler() {
-        html2canvas(this.refs.downloadable, { useCORS: true }).then(function (canvas) {
+        window.scrollTo(0,0);
+        html2canvas(this.refs.downloadable, { useCORS: true, dpi: 200 }).then(function (canvas) {
             const data = canvas.toDataURL("image/png");
             const a = document.createElement('a');
             a.href = data;
@@ -85,7 +86,6 @@ class Template2 extends Component {
                             width={canvasObj.width}
                             border={canvasObj.border}
                             color={canvasObj.color}
-                            radius={canvasObj.radius}
                             url={canvasObj.url}
                             key={canvasObj.id}
                             clicked={() => { clicked(canvasObj.id) }} />

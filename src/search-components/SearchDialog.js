@@ -54,7 +54,7 @@ const FullScreenDialog = (props) => {
     <div>
       <SearchIcon/>
       <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.outlinedPrimary}>
-         Search web...
+         Search web
       </Button>
       <Dialog fullScreen open={fullScreenDialogState} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={[classes.appBar, classes.colorPrimary].join(' ')}>
@@ -63,7 +63,7 @@ const FullScreenDialog = (props) => {
               <CloseIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Search Web For Images
+              Search Web
             </Typography>
             <Button color="inherit" onClick={handleClose}>
               Close
