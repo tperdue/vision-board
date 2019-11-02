@@ -6,6 +6,8 @@ import '../CSS/TemplateStyles.css';
 import html2canvas from 'html2canvas';
 import { clicked } from '../redux-store/actions/canvas';
 import ContainedButtons from './Button';
+import TextInput from '../veronica-components/TextInput';
+
 
 class Template extends Component {
     constructor(props) {
@@ -57,6 +59,8 @@ class Template extends Component {
         return (
             <div>
                 <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
+                <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput /> <TextInput />
+               
                     {canvasjsx}
                 </div>
 
