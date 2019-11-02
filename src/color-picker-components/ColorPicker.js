@@ -21,7 +21,7 @@ class ColorPicker extends React.Component {
 		return (
 			<div>
 				<SketchPicker
-					width={180}
+					width={135}
 					disableAlpha={true}
 					onChangeComplete={this.handleColorChange}
 					presetColors={
