@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(1),
+        color: "#f6f078",
+        borderColor: "#f6f078" 
     },
     input: {
         display: 'none',
@@ -87,7 +89,7 @@ const SaveBoardButton = (props) => {
             <Button
                 onClick={saveBoardHandler}
                 className={classes.button}
-                variant="contained"
+                variant="outlined"
                 color="secondary"
 
             >Save Board</Button>
