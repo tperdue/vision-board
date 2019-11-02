@@ -16,17 +16,27 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const buttonContainerStyles = {
-  textAlign: 'center',
-  width: "50vw",
-  margin: "0 auto"
-}
+const buttonContainerStyles = makeStyles(theme => ({
+
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    margin: "0 auto",
+    width: "80vw",
+    [theme.breakpoints.up('md')]: {
+      width: "50vw"
+    }
+  }
+
+
+}));
 
 export default function ContainedButtons(props) {
   const classes = useStyles();
+  const buttonCss = buttonContainerStyles();
 
   return (
-    <div style={buttonContainerStyles}>
+    <div className={buttonCss.root}>
 
 
       <ButtonGroup

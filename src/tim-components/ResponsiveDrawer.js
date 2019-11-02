@@ -21,6 +21,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
     },
     drawer: {
+        backgroundColor: "#3c4245",
         [theme.breakpoints.up('sm')]: {
             width: drawerWidth,
             flexShrink: 0,

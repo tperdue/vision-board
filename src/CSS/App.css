@@ -72,18 +72,18 @@
 
 }
 
-/*
+
 .MuiDrawer-root {
   background-color: #3c4245;
 
 }
 
-
+/*
 .MuiPaper-elevation0.MuiDrawer-paper.makeStyles-drawerPaper-131.MuiDrawer-paperAnchorLeft.MuiDrawer-paperAnchorDockedLeft {
   background-color: #3c4245;
 
 }
-
+*/
 .makeStyles-content-202 {
   background-image: url('../Assets/background.png');
 }
@@ -113,7 +113,7 @@
   background-color: #000;
 }
 
-.uploadcare--widget__button, .uploadcare--widget__button:hover {
+/* .uploadcare--widget__button, .uploadcare--widget__button:hover {
 	padding: 20px;
 	background-color: ;
 	border: 3px dashed #2c003a;
