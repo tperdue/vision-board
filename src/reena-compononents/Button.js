@@ -49,23 +49,12 @@ export default function ContainedButtons(props) {
   const buttonCss = buttonContainerStyles();
 
   return (
-<<<<<<< HEAD
+
     <div className={buttonCss.root}>
-
-
-      <ButtonGroup
-        variant="contained"
-        color="secondary"
-        aria-label="full-width contained primary button group"
-      >
-        <Button onClick={props.downloadClick} className={classes.button}>
-          Download to Image
-=======
-    <div style={buttonContainerStyles}>
             <Button onClick={props.downloadClick} className={classes.button} variant="outlined"
               color="primary">
               Download
-    >>>>>>> test-merge-stying-Reena
+  
                     </Button>
 
             <SaveBoardButton />

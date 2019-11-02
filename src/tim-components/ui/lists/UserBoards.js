@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -16,18 +16,25 @@ import { updateCurrentBoard, saveBoard, deleteBoard } from '../../../redux-store
 import { updateAlertDialog } from '../../../redux-store/actions/alert-dialogs'
 import { loadCanvases } from '../../../redux-store/actions/canvas';
 import ChangeBoardTitleDialog from '../alerts-dialogs/ChangeBoardTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         margin: '0 auto',
         marginTop: '2rem',
-        width: '60vw',
+        width: '80vw',
         overflowX: 'auto',
+        [theme.breakpoints.up('md')]: {
+            width: "60vw"
+        }
     },
     table: {
-        minWidth: 650,
+        width: "40vw",
+        [theme.breakpoints.up('md')]: {
+            width: "50vw"
+        }
     },
-});
+}));
 
 const useIconStyles = makeStyles({
     root: {
@@ -40,10 +47,14 @@ const useIconStyles = makeStyles({
 })
 
 
+
 const UserBoardsList = (props) => {
     const classes = useStyles();
     const iconClasses = useIconStyles();
     const { board, updateCurrentBoard, deleteBoard, loadCanvases, changeBoardTitleDialogInfo } = props;
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
 
     const handleLoadBoard = (id) => {
         const { userBoards } = board;
@@ -83,9 +94,9 @@ const UserBoardsList = (props) => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Title</TableCell>
-                            <TableCell></TableCell>
-                            <TableCell></TableCell>
-                            <TableCell></TableCell>
+                            <TableCell>{`${matches ? '' : 'Load Board'}`}</TableCell>
+                            <TableCell>{`${matches ? '' : 'Edit Title'}`}</TableCell>
+                            <TableCell>{`${matches ? '' : 'Delete Board'}`}</TableCell>
 
 
                         </TableRow>
@@ -95,21 +106,21 @@ const UserBoardsList = (props) => {
                             return (
                                 <TableRow key={row.id}>
                                     <TableCell>{row.title}</TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align={`${matches ? 'right' : 'left'}`}>
                                         <Tooltip title="Load Board">
                                             <IconButton onClick={() => handleLoadBoard(row.id)}>
                                                 <AutorenewIcon />
                                             </IconButton>
                                         </Tooltip>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align={`${matches ? 'right' : 'left'}`}>
                                         <Tooltip title="Change Title">
                                             <IconButton onClick={() => { handleChangeTitle(row.id) }}>
                                                 <EditIcon />
                                             </IconButton>
                                         </Tooltip>
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align={`${matches ? 'right' : 'left'}`}>
 
                                         <Tooltip title="Delete Board">
                                             <IconButton classes={iconClasses}
