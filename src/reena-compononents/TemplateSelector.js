@@ -14,6 +14,9 @@ import { ReactComponent as Template4Icon } from '../Assets/Template4.svg';
 import { connect } from 'react-redux';
 import { switchTemplate } from '../redux-store/actions/template';
 import '../CSS/TemplateSelector.css';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+
 
 
 
@@ -52,14 +55,27 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+  },
+  tabClasses: {
+    color: "#f6f078"
   }
-
+  
 }));
+
+
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: '#f6f078',
+    },
+  },
+});
 
 
 const tabStyles = makeStyles(theme => ({
   flexContainer: {
-    justifyContent: "center"
+    justifyContent: "center",
   }
 }))
 
@@ -80,7 +96,8 @@ const ScrollableTabsButtonPrevent = (props) => {
 
   return (
     <div className={classes.root} style={{ backgroundColor: "transparent" }}>
-      <AppBar position="static" style={{ backgroundColor: "#3c4245", margin: "auto", textAlign: "center", width: "75%", color: "#00c9b7" }}>
+     <MuiThemeProvider theme={theme} >
+      <AppBar position="static" style={{ backgroundColor: "#3c4245", margin: "auto", textAlign: "center", width: "91%", color: "#f6f078" }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -97,6 +114,8 @@ const ScrollableTabsButtonPrevent = (props) => {
 
         </Tabs>
       </AppBar>
+    </MuiThemeProvider>
+
       <TabPanel value={value} index={0}>
         <Template />
       </TabPanel>

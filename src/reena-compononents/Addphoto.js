@@ -2,6 +2,7 @@ import React from 'react';
 import { Widget } from "@uploadcare/react-widget";
 import { connect } from 'react-redux';
 import uploadcareTabEffects from 'uploadcare-widget-tab-effects'
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 
 
@@ -14,9 +15,9 @@ const AddPhoto = (props) => {
 
 
 
-    return (<div >
-        <p>
-
+    return (<div style={{height:"41px"}} >
+        <p >
+            <AddAPhotoIcon/>
             <Widget
                 publicKey='512c413de32b68f92c92'
                 id='file'
