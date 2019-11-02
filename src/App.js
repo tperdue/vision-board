@@ -14,7 +14,6 @@ import SearchPage from './tim-components/SearchPage';
 
 
 
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',

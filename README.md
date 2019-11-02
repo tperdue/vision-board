@@ -1,68 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# PicCollage
 
-## Available Scripts
+A web application that allows a user to create picture collage using pictures from the user's local file system or pictures searched from the web.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+ * Node version 12.13.0 or higher
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `npm run build`
+Clone git repo
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+git clone git@github.com:tperdue/vision-board.git
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Change into directory where repo was cloned.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+cd vision-board
+```
 
-### `npm run eject`
+Install dependencies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+npm install 
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm start 
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Add additional notes about how to deploy this on a live system
 
-### Analyzing the Bundle Size
+## Project Details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### User Authentication
 
-### Making a Progressive Web App
+The application's user authentication system is using Firebase
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Code:
+```
+Login React Component: src/tim-component/Login.js 
+Redux Actions: src/redux-store/actions/user.js
+Redux Reducer: src/redux-store/reducers/user.js
 
-### Advanced Configuration
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Built With (no particular order)
 
-### Deployment
+* [React ](https://github.com/facebook/react) - A declarative, efficient, and flexible JavaScript library for building user interfaces. 
+* [Material UI](https://github.com/mui-org/material-ui) - A React UI component library.
+* [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+* [Firebase](https://github.com/firebase/firebase-js-sdk) - Used for serverless backend infrastructure.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## Authors
 
-### `npm run build` fails to minify
+* **Michael Le** - Image Download,Image Web Search, Template Color Picker - [LeMichael07](https://github.com/LeMichael07)
+* **Reena Gouldbourne** - Canvase,Template Selection, Application Styling - [ReenaGo](https://github.com/ReenaGo)
+* **Tim Perdue** - [User Authentication](#user-authentication), User Board Management, Alert & Dialogs- [TPerdue](https://github.com/tperdue)
+* **Veronica Johnson** - Canvas Styling, Canvas Text Selection - [JOHNSOV5](https://github.com/JOHNSOV5)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc

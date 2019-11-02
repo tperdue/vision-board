@@ -22,6 +22,15 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2),
     flex: 1,
   },
+
+  outlinedPrimary: {
+    color: 'white',
+    borderColor: 'white'
+
+  },
+  colorPrimary: {
+    backgroundColor: '#3c4245'
+  }
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -43,11 +52,11 @@ const FullScreenDialog = (props) => {
   const fullScreenDialogState = props.fullScreenDialog.open;
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.outlinedPrimary}>
         Search web...
       </Button>
       <Dialog fullScreen open={fullScreenDialogState} onClose={handleClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
+        <AppBar className={[classes.appBar, classes.colorPrimary].join(' ')}>
           <Toolbar>
             <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
               <CloseIcon />
@@ -56,7 +65,7 @@ const FullScreenDialog = (props) => {
               Search Web For Images
             </Typography>
             <Button color="inherit" onClick={handleClose}>
-              Test Button
+              Close
             </Button>
           </Toolbar>
         </AppBar>

@@ -2,14 +2,18 @@ import React from 'react';
 import { Component } from 'react';
 import Canvas from './Canvas';
 import { connect } from 'react-redux';
-import '../CSS/Template.css';
+import '../CSS/TemplateStyles.css';
 import html2canvas from 'html2canvas';
-
+import { clicked } from '../redux-store/actions/canvas';
+import ContainedButtons from './Button';
 
 class Template extends Component {
     constructor(props) {
         super(props);
         this.state = { download: false }
+        this.downloadHandler = this.downloadHandler.bind(this)
+
+
     }
 
     downloadHandler() {
@@ -24,71 +28,61 @@ class Template extends Component {
 
 
     render() {
+
         console.log("Selected... ", this.props.selectedItem)
 
-        const canvasjsx = this.props.canvases.map((canvasObj) => {
-            return (<Canvas
-                selected={canvasObj.selected}
-                height={canvasObj.height}
-                width={canvasObj.width}
-                border={canvasObj.border}
-                color={canvasObj.color}
-                radius={canvasObj.radius}
-                margin={canvasObj.margin}
-                url={canvasObj.selected && this.props.selectedItem ? this.props.selectedItem.webformatURL : canvasObj.url}
-                key={canvasObj.id}
-                clicked={() => { this.props.clicked(canvasObj.id) }} />)
-        });
+        const { templateClass, templateCells } = this.props.template;
+        const clicked = this.props.clicked;
+        const canvasjsx = this.props.canvases
+            .filter((canvas, index) => templateCells[index])
+            .map((canvasObj, index) => {
+                const classString = `${templateClass} ${templateCells[index]}`;
+                return (
+                    <div className={classString} key={canvasObj.id}>
+                        <Canvas
+                            selected={canvasObj.selected}
+                            height={canvasObj.height}
+                            width={canvasObj.width}
+                            border={canvasObj.border}
+                            color={canvasObj.color}
+                            radius={canvasObj.radius}
+                            url={canvasObj.url}
+                            key={canvasObj.id}
+                            clicked={() => { clicked(canvasObj.id) }} />
+                    </div>
+                )
+            });
 
 
         return (
             <div>
-                <div ref="downloadable" className="grid-item item2">
-                    <div className="canvas-item item3">
-                        {canvasjsx[0]}
-                    </div>
-                    <div className="canvas-item item4">
-                        {canvasjsx[1]}
-                    </div>
-                    <div className="canvas-item item5">
-                        {canvasjsx[2]}
-                    </div>
-                    <div className="canvas-item item6">
-                        {canvasjsx[3]}
-                    </div>
-                    <div className="canvas-item item7">
-                        {canvasjsx[4]}
-                    </div>
-                    <div className="canvas-item item8">
-                        {canvasjsx[5]}
-                    </div>
-                    <div className="canvas-item item9">
-                        {canvasjsx[6]}
-                    </div>
-                    <div className="canvas-item item10">
-                        {canvasjsx[7]}
-                    </div>
-                    <div className="canvas-item item11">
-                        {canvasjsx[8]}
-                    </div>
+                <div ref="downloadable" className="grid-item item2" style={{ backgroundColor: this.props.bgColor }}>
+                    {canvasjsx}
                 </div>
-                <button onClick={this.downloadHandler.bind(this)}>Download</button>
+
+                <ContainedButtons downloadClick={this.downloadHandler} />
+
             </div>)
     }
-
-
 }
 
 const matchStateToProps = (state) => {
-    console.log(state)
-    return { canvases: state.can.canvases, selectedItem: state.searchResultReducer.selected, }
-}
 
-const matchDispatchToProps = (dispatch) => {
+    //console.log(state)
+    const { template } = state;
+
     return {
-        clicked: (canvasId) => dispatch({ type: 'SELECT_CANVAS', canvasId }),
+        canvases: state.can.canvases,
+        selectedItem: state.searchResultReducer.selected,
+        bgColor: state.color.bgColor,
+        template,
+
     }
 }
 
+const matchDispatchToProps = {
+    clicked
+
+}
 
 export default connect(matchStateToProps, matchDispatchToProps)(Template);

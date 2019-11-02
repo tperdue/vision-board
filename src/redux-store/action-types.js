@@ -21,3 +21,44 @@ export const CLEAR_USER_DATA = 'CLEAR_USER_DATA'
 
 export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';
+
+
+
+//color picker 
+
+export const PICK_COLOR_1 = 'PICK_COLOR_1';
+export const PICK_COLOR_2 = 'PICK_COLOR_2';
+
+
+//board
+export const SAVE_BOARD = 'SAVE_BOARD';
+export const GET_USER_BOARDS = 'GET_USER_BOARDS';
+export const UPDATE_CURRENT_BOARD = 'UPDATE_CURRENT_BOARD';
+export const UPDATE_USER_BOARDS = 'UPDATE_USER_BOARDS';
+export const DELETE_USER_BOARD = 'DELETE_USER_BOARD';
+export const LOAD_CANVASES = 'LOAD_USER_BOARD';
+export const CHANGE_BOARD_TITLE = 'CHANGE_BOARD_TITLE';
+export const CLEAR_BOARD = 'CLEAR_BOARD';
+export const CLEAR_CURRENT_BOARD = 'CLEAR_CURRENT_BOARD';
+export const RESET_BOARD = 'RESET_BOARD'
+
+
+//alerts
+
+export const UPDATE_ALERT = 'OPEN_ALERT';
+export const CLOSE_ALERT = 'CLOSE_ALERT';
+
+
+
+//canvas
+
+export const SELECT_CANVAS = 'SELECT_CANVAS';
+export const BACKGROUND_COLOR = 'ACTIONS/BACKGROUND_COLOR';
+// export const PICK_COLOR_1 = 'PICK_COLOR_1';
+// export const PICK_COLOR_2 = 'PICK_COLOR_2';
+
+
+
+// templates
+
+export const SWITCH_TEMPLATE = 'SWITCH_TEMPLATE';

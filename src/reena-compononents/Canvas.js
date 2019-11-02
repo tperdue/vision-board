@@ -4,10 +4,7 @@ import React, { Component } from 'react';
 
 
 class Canvas extends Component {
-    constructor(props) {
-        super(props);
-        //this.img = new Image();
-    }
+   
 
     componentDidMount() {
         //const canvas = this.refs.canvas
@@ -32,7 +29,7 @@ class Canvas extends Component {
             border: borderStyle,
             backgroundColor: this.props.color,
             borderRadius: this.props.radius,
-            margin: this.props.margin,
+            // margin: this.props.margin,
             backgroundImage: `url("${this.props.url}")`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
