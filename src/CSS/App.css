@@ -1,6 +1,4 @@
-.uploadcare--widget__text {
-  display: none;
-}
+.uploadcare--widget__text {}
 
 .row {
   display: flex;

@@ -45,17 +45,22 @@ export const addPhoto = (image) => async (dispatch) => {
 	const imageUrl = new URL(image);
 	if (imageUrl.hostname === 'pixabay.com') {
 		const UPLOADCARE_PUBLIC_KEY = '512c413de32b68f92c92';
-		uploadcare.closeDialog(null, {
+
+		const file = uploadcare.fileFrom('url', image, {
 			publicKey: UPLOADCARE_PUBLIC_KEY,
 			imagesOnly: true,
 			crop: '0x0'
 		});
-		const file = uploadcare.fileFrom('url', image);
 
 		console.log(image);
 		file.done(function (fileInfo) {
 			// Upload has successfully completed and a file is ready.
-			console.log(fileInfo)
+			const newUrl = `${fileInfo.cdnUrl}${fileInfo.name}`;
+			dispatch({
+				type: 'ADD_IMAGE',
+				payload: newUrl
+			})
+
 		}).fail(function (error, fileInfo) {
 			// Upload failed, or something else went wrong, a file is not ready.
 			console.log(error, fileInfo);
