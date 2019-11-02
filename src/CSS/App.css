@@ -1,3 +1,7 @@
+.uploadcare--widget__text {
+  display: none;
+}
+
 .row {
   display: flex;
   flex-direction: row;
