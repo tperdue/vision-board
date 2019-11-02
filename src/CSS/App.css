@@ -72,7 +72,7 @@
 
 }
 
-
+/*
 .MuiDrawer-root {
   background-color: #3c4245;
 
@@ -113,7 +113,7 @@
   background-color: #000;
 }
 
-/* .uploadcare--widget__button, .uploadcare--widget__button:hover {
+.uploadcare--widget__button, .uploadcare--widget__button:hover {
 	padding: 20px;
 	background-color: ;
 	border: 3px dashed #2c003a;
