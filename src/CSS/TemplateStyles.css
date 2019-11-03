@@ -1,6 +1,11 @@
 /* Template 1*/
 
-
+.input {
+    color: white;
+    font-family: Apple Chancery;
+    text-shadow: 2px 2px black;
+    font-size: 19px;
+}
 
 .item1 {
     grid-column-start: 1;
