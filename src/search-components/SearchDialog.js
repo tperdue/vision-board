@@ -24,8 +24,11 @@ const useStyles = makeStyles(theme => ({
   },
 
   outlinedPrimary: {
+
     color: 'white',
-    borderColor: 'white'
+    borderColor: 'white',
+    marginLeft: "1rem",
+    width: "10rem"
 
   },
   colorPrimary: {
@@ -51,10 +54,10 @@ const FullScreenDialog = (props) => {
 
   const fullScreenDialogState = props.fullScreenDialog.open;
   return (
-    <div>
-      <SearchIcon/>
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <SearchIcon />
       <Button variant="outlined" color="primary" onClick={handleClickOpen} className={classes.outlinedPrimary}>
-         Search web
+        Search web
       </Button>
       <Dialog fullScreen open={fullScreenDialogState} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={[classes.appBar, classes.colorPrimary].join(' ')}>

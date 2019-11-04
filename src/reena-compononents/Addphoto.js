@@ -15,9 +15,9 @@ const AddPhoto = (props) => {
 
 
 
-    return (<div style={{height:"41px"}} >
-        <p >
-            <AddAPhotoIcon/>
+    return (<div style={{ height: "41px" }} >
+        <p style={{ display: "flex", alignItems: "center" }}>
+            <AddAPhotoIcon />
             <Widget
                 publicKey='512c413de32b68f92c92'
                 id='file'

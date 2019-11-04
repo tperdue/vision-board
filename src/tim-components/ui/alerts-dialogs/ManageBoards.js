@@ -28,7 +28,9 @@ const useStyles = makeStyles(theme => ({
 
     outlinedPrimary: {
         color: 'white',
-        borderColor: 'white'
+        borderColor: 'white',
+        marginLeft: "1rem",
+        width: "10rem"
 
     },
     colorPrimary: {
