@@ -41,25 +41,52 @@ npm start
 
 
 
-## Deployment
 
-Add additional notes about how to deploy this on a live system
+## Project Infrastructure
 
-## Project Details
+This project makes heavy use of the [Firebase ecosystem](https://firebase.google.com/). Below is a list of the Firebase products we are using.
 
-The following is a list of the major compoments in the application
+- [Firebase Hosting](https://firebase.google.com/products/hosting/)
+- [Cloud Functions for Firebase](https://firebase.google.com/products/functions/)
+- [Firebase Authentication](https://firebase.google.com/products/auth/)
+- [Firebase Cloud Firestore](https://firebase.google.com/products/firestore/)
+
+Using Firebase for our infrastructure allows us to almost exclusively use our time to write business logic code. For example, we were able to implment api end points for our front-end code without writing any server side routing logic. The other Firebase products allows us to use a database system, mplement an authenticaton system and host our front-end code without managing servers or writing boilerplate code to manage these systems. 
+
+
+## Project Features
+
+The following is a list of the major features in the application
+
+
+### Add/Edit Photo
+
+Code:
+```
+Add Photo Component: src/reena-components/Addphoto.js
+Redux Reducer: src/redux-store/reducers/AddPhotoReducer.js
+```
+
+### Picture Web Search
+
+Code:
+```
+Individual Canvas Cell Component: src/reena-components/Canvas.js
+Template Board Component: src/reena-components/Template.js 
+Template Selection Component: src/reena-components/TemplateSelector.js
+
+Redux Actions: src/redux-store/actions/color-picker.js
+Redux Reducer: src/redux-store/reducers/color-picker.js
+
+```
 
 ### Canvas Board
 
-
-
 Code:
-* [Individual Canvas Cell Component](src/reena-components/Canvas.js)
 ```
-
+Individual Canvas Cell Component: src/reena-components/Canvas.js
 Template Board Component: src/reena-components/Template.js 
-Template Selection Component: src/reena-components/Te
-
+Template Selection Component: src/reena-components/TemplateSelector.js
 
 Redux Actions: src/redux-store/actions/color-picker.js
 Redux Reducer: src/redux-store/reducers/color-picker.js
@@ -76,9 +103,7 @@ Redux Reducer: src/redux-store/reducers/color-picker.js
 
 ```
 
-### User Authentication
-
-The application's user authentication system is using Firebase
+### User Authentication 
 
 Code:
 ```
@@ -88,6 +113,15 @@ Redux Reducer: src/redux-store/reducers/user.js
 
 ```
 
+### User Board Management
+
+Code:
+```
+Manage Board Component: src/tim-component/ui/alert-dialogs/ManageBoards.js
+Redux Actions: src/redux-store/actions/board.js
+Redux Reducer: src/redux-store/reducers/board.js
+
+```
 
 
 
@@ -105,7 +139,7 @@ Redux Reducer: src/redux-store/reducers/user.js
 
 
 
-## Authors
+## Project Team Members
 
 * **Michael Le**  [LeMichael07](https://github.com/LeMichael07)
 * **Reena Gouldbourne** [ReenaGo](https://github.com/ReenaGo)
