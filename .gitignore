@@ -23,6 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 #functions
-functions/node_modules
+functions/node_modules/
 functions/service-key.json
-
