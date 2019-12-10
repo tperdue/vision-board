@@ -13,7 +13,7 @@ import firebase from '../firebase';
 export const saveBoard = (board) => async (dispatch) => {
 
 
-    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/saveBoard';
+    const url = 'https://us-central1-vision-board-3.cloudfunctions.net/saveBoard';
     //const url = 'http://localhost:5000/vision-board-51991/us-central1/saveBoard';
     try {
 
@@ -56,7 +56,7 @@ export const saveBoard = (board) => async (dispatch) => {
 export const deleteBoard = (board) => async (dispatch) => {
 
 
-    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/deleteUserBoard';
+    const url = 'https://us-central1-vision-board-3.cloudfunctions.net/deleteUserBoard';
     //const url = 'http://localhost:5000/vision-board-51991/us-central1/deleteUserBoard';
     const currentUser = firebase.auth().currentUser;
 
@@ -149,7 +149,7 @@ export const updateUserBoards = (boards) => {
 
 export const getUserBoards = () => async (dispatch) => {
     //const url = 'http://localhost:5000/vision-board-51991/us-central1/getUserBoards';
-    const url = 'https://us-central1-vision-board-51991.cloudfunctions.net/getUserBoards';
+    const url = 'https://us-central1-vision-board-3.cloudfunctions.net/getUserBoards';
     const currentUser = firebase.auth().currentUser;
 
 

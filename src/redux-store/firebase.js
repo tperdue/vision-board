@@ -5,14 +5,13 @@ import "firebase/firestore"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCRPovKA1wK72puzf_ia8nDeXmS6EeQKps",
-    authDomain: "vision-board-51991.firebaseapp.com",
-    databaseURL: "https://vision-board-51991.firebaseio.com",
-    projectId: "vision-board-51991",
-    storageBucket: "vision-board-51991.appspot.com",
-    messagingSenderId: "818423804592",
-    appId: "1:818423804592:web:de12cc924cec4974ad8175",
-    measurementId: "G-6FM29G66GY"
+  apiKey: "AIzaSyAVgu4jF_fP8Y27lD-Gq4WLeghuXnircOs",
+  authDomain: "vision-board-3.firebaseapp.com",
+  databaseURL: "https://vision-board-3.firebaseio.com",
+  projectId: "vision-board-3",
+  storageBucket: "vision-board-3.appspot.com",
+  messagingSenderId: "316523167433",
+  appId: "1:316523167433:web:f18c2ce5565c23869b1718"
   };
 
 

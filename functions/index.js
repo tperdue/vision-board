@@ -10,7 +10,7 @@ const userController = require('./users');
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://vision-board-51991.firebaseio.com"
+    databaseURL: "https://vision-board-3.firebaseio.com"
 });
 
 const firestore = admin.firestore();

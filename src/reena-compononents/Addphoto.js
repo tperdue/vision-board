@@ -19,7 +19,7 @@ const AddPhoto = (props) => {
         <p style={{ display: "flex", alignItems: "center" }}>
             <AddAPhotoIcon />
             <Widget
-                publicKey='512c413de32b68f92c92'
+                publicKey='768a309ca03b54fb747f'
                 id='file'
                 onChange={(info) => { console.log(info); props.addImage(info.cdnUrl) }}
                 customTabs={{ "Effects": editTab }}

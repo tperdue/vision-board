@@ -44,7 +44,7 @@ export const addPhoto = (image) => async (dispatch) => {
 	//check if uploadcare
 	const imageUrl = new URL(image);
 	if (imageUrl.hostname === 'pixabay.com') {
-		const UPLOADCARE_PUBLIC_KEY = '512c413de32b68f92c92';
+		const UPLOADCARE_PUBLIC_KEY = '768a309ca03b54fb747f';
 
 		const file = uploadcare.fileFrom('url', image, {
 			publicKey: UPLOADCARE_PUBLIC_KEY,
